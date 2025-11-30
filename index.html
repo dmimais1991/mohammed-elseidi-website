@@ -860,6 +860,221 @@
             50% { transform: scale(1.2); opacity: 1; }
         }
 
+        /* ===== Seminars & Presentations Section ===== */
+        .seminars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .seminar-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(13, 148, 136, 0.1);
+        }
+
+        .seminar-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .seminar-preview {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--primary-dark) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .seminar-preview iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            pointer-events: none;
+        }
+
+        .seminar-preview .preview-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(15, 23, 42, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            cursor: pointer;
+        }
+
+        .seminar-card:hover .preview-overlay {
+            opacity: 1;
+        }
+
+        .preview-overlay .view-btn {
+            background: var(--gradient-3);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 20px rgba(13, 148, 136, 0.4);
+            transition: transform 0.3s ease;
+        }
+
+        .preview-overlay .view-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .seminar-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-light);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .seminar-placeholder i {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            opacity: 0.7;
+        }
+
+        .seminar-placeholder span {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .seminar-info {
+            padding: 1.5rem;
+        }
+
+        .seminar-info h3 {
+            color: var(--dark);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .seminar-info .seminar-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .seminar-info .seminar-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .seminar-info .seminar-meta i {
+            color: var(--primary);
+        }
+
+        .seminar-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* PDF Modal Viewer */
+        .pdf-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .pdf-modal.active {
+            display: flex;
+        }
+
+        .pdf-modal-content {
+            width: 100%;
+            max-width: 1000px;
+            height: 90vh;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 25px 100px rgba(0, 0, 0, 0.5);
+        }
+
+        .pdf-modal-header {
+            background: var(--gradient-2);
+            color: white;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .pdf-modal-header h3 {
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        .pdf-modal-close {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.25rem;
+            transition: background 0.3s ease;
+        }
+
+        .pdf-modal-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .pdf-modal-body {
+            height: calc(100% - 60px);
+            position: relative;
+        }
+
+        .pdf-modal-body iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Disable right-click and text selection on PDF viewer */
+        .pdf-modal-body {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
         .hero-container {
             max-width: 1400px;
             margin: 0 auto;
@@ -1786,6 +2001,7 @@
                 <li><a href="#leadership">Leadership</a></li>
                 <li><a href="#editorial">Editorial</a></li>
                 <li><a href="#education">Education</a></li>
+                <li><a href="#seminars">Seminars</a></li>
                 <li><a href="#publications">Publications</a></li>
                 <li><a href="#awards">Awards</a></li>
                 <li><a href="#media">Media</a></li>
@@ -2383,6 +2599,97 @@
         </div>
     </section>
 
+    <!-- Seminars & Presentations Section -->
+    <section class="section section-gradient" id="seminars">
+        <div class="container">
+            <div class="section-header">
+                <h2>Seminars & Presentations</h2>
+                <p>Academic talks, workshops, and research presentations</p>
+            </div>
+            <div class="seminars-grid">
+                <!-- Seminar Card 1 - Example with placeholder -->
+                <div class="seminar-card">
+                    <div class="seminar-preview">
+                        <div class="seminar-placeholder">
+                            <i class="fas fa-file-pdf"></i>
+                            <span>MSTL-NNAR Model Presentation</span>
+                        </div>
+                        <div class="preview-overlay" onclick="openPdfModal('seminar1', 'MSTL-NNAR: Future Forecasting Using Machine Learning')">
+                            <span class="view-btn"><i class="fas fa-eye"></i> View Presentation</span>
+                        </div>
+                    </div>
+                    <div class="seminar-info">
+                        <span class="seminar-badge">Scientific Seminar</span>
+                        <h3>MSTL-NNAR: Future Forecasting Using Machine Learning</h3>
+                        <div class="seminar-meta">
+                            <span><i class="fas fa-calendar"></i> April 2025</span>
+                            <span><i class="fas fa-map-marker-alt"></i> UAE</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Seminar Card 2 - Placeholder for future upload -->
+                <div class="seminar-card">
+                    <div class="seminar-preview">
+                        <div class="seminar-placeholder">
+                            <i class="fas fa-file-powerpoint"></i>
+                            <span>Time Series Decomposition</span>
+                        </div>
+                        <div class="preview-overlay" onclick="openPdfModal('seminar2', 'Advanced Time Series Decomposition Methods')">
+                            <span class="view-btn"><i class="fas fa-eye"></i> View Presentation</span>
+                        </div>
+                    </div>
+                    <div class="seminar-info">
+                        <span class="seminar-badge">Workshop</span>
+                        <h3>Advanced Time Series Decomposition Methods</h3>
+                        <div class="seminar-meta">
+                            <span><i class="fas fa-calendar"></i> 2024</span>
+                            <span><i class="fas fa-university"></i> Academic Workshop</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Seminar Card 3 - Placeholder -->
+                <div class="seminar-card">
+                    <div class="seminar-preview">
+                        <div class="seminar-placeholder">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Environmental Forecasting</span>
+                        </div>
+                        <div class="preview-overlay" onclick="openPdfModal('seminar3', 'Hybrid Models for Environmental Forecasting')">
+                            <span class="view-btn"><i class="fas fa-eye"></i> View Presentation</span>
+                        </div>
+                    </div>
+                    <div class="seminar-info">
+                        <span class="seminar-badge">Conference Talk</span>
+                        <h3>Hybrid Models for Environmental Forecasting</h3>
+                        <div class="seminar-meta">
+                            <span><i class="fas fa-calendar"></i> 2024</span>
+                            <span><i class="fas fa-globe"></i> International Conference</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p style="text-align: center; margin-top: 2rem; color: var(--text-light); font-size: 0.9rem;">
+                <i class="fas fa-info-circle"></i> Click on any presentation to view. Presentations are view-only and protected.
+            </p>
+        </div>
+    </section>
+
+    <!-- PDF Modal Viewer -->
+    <div class="pdf-modal" id="pdfModal">
+        <div class="pdf-modal-content">
+            <div class="pdf-modal-header">
+                <h3 id="pdfModalTitle">Presentation Title</h3>
+                <button class="pdf-modal-close" onclick="closePdfModal()"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="pdf-modal-body" oncontextmenu="return false;">
+                <iframe id="pdfViewer" src="" allow="autoplay"></iframe>
+            </div>
+        </div>
+    </div>
+
     <!-- Publications Section -->
     <section class="section section-dark" id="publications">
         <div class="container">
@@ -2660,6 +2967,72 @@
             } else {
                 navbar.style.background = 'rgba(15, 23, 42, 0.95)';
             }
+        });
+
+        // PDF Modal Functions
+        // Store your Google Drive PDF links here (use the /preview link format)
+        const pdfLinks = {
+            'seminar1': 'YOUR_GOOGLE_DRIVE_PDF_EMBED_LINK_1',
+            'seminar2': 'YOUR_GOOGLE_DRIVE_PDF_EMBED_LINK_2',
+            'seminar3': 'YOUR_GOOGLE_DRIVE_PDF_EMBED_LINK_3'
+        };
+
+        function openPdfModal(seminarId, title) {
+            const modal = document.getElementById('pdfModal');
+            const viewer = document.getElementById('pdfViewer');
+            const modalTitle = document.getElementById('pdfModalTitle');
+
+            modalTitle.textContent = title;
+
+            // Get the PDF link from the pdfLinks object
+            const pdfUrl = pdfLinks[seminarId];
+
+            if (pdfUrl && pdfUrl !== 'YOUR_GOOGLE_DRIVE_PDF_EMBED_LINK_1' &&
+                pdfUrl !== 'YOUR_GOOGLE_DRIVE_PDF_EMBED_LINK_2' &&
+                pdfUrl !== 'YOUR_GOOGLE_DRIVE_PDF_EMBED_LINK_3') {
+                viewer.src = pdfUrl;
+            } else {
+                // Show placeholder message if no PDF uploaded yet
+                viewer.srcdoc = `
+                    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; background: linear-gradient(135deg, #0f172a, #0f766e); color: #14b8a6; font-family: system-ui;">
+                        <i class="fas fa-file-pdf" style="font-size: 5rem; margin-bottom: 1rem; opacity: 0.5;"></i>
+                        <h3 style="margin: 0; color: #fff;">Presentation Coming Soon</h3>
+                        <p style="opacity: 0.7; margin-top: 0.5rem;">This presentation will be uploaded shortly.</p>
+                    </div>
+                `;
+            }
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePdfModal() {
+            const modal = document.getElementById('pdfModal');
+            const viewer = document.getElementById('pdfViewer');
+
+            modal.classList.remove('active');
+            viewer.src = '';
+            document.body.style.overflow = '';
+        }
+
+        // Close modal on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closePdfModal();
+            }
+        });
+
+        // Close modal when clicking outside content
+        document.getElementById('pdfModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closePdfModal();
+            }
+        });
+
+        // Disable right-click on PDF modal
+        document.querySelector('.pdf-modal-body').addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            return false;
         });
     </script>
 </body>
