@@ -150,27 +150,281 @@
             pointer-events: none;
         }
 
-        /* Animated data particles */
-        .hero::after {
-            content: '';
+        /* ===== Animated Background Elements ===== */
+        .bg-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Floating Data Particles */
+        .particles {
             position: absolute;
             width: 100%;
             height: 100%;
-            background-image:
-                radial-gradient(2px 2px at 20px 30px, rgba(20, 184, 166, 0.4), transparent),
-                radial-gradient(2px 2px at 40px 70px, rgba(14, 165, 233, 0.3), transparent),
-                radial-gradient(2px 2px at 50px 160px, rgba(34, 197, 94, 0.3), transparent),
-                radial-gradient(2px 2px at 90px 40px, rgba(20, 184, 166, 0.4), transparent),
-                radial-gradient(2px 2px at 130px 80px, rgba(14, 165, 233, 0.3), transparent),
-                radial-gradient(2px 2px at 160px 120px, rgba(34, 197, 94, 0.4), transparent);
-            background-size: 200px 200px;
-            animation: sparkle 4s linear infinite;
-            opacity: 0.6;
         }
 
-        @keyframes sparkle {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-200px); }
+        .particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: var(--primary-light);
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: floatParticle 15s infinite ease-in-out;
+        }
+
+        .particle:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; background: var(--primary); }
+        .particle:nth-child(2) { left: 20%; top: 80%; animation-delay: 2s; background: var(--secondary); }
+        .particle:nth-child(3) { left: 30%; top: 40%; animation-delay: 4s; background: var(--accent); }
+        .particle:nth-child(4) { left: 40%; top: 60%; animation-delay: 1s; background: var(--primary-light); }
+        .particle:nth-child(5) { left: 50%; top: 30%; animation-delay: 3s; background: var(--secondary); }
+        .particle:nth-child(6) { left: 60%; top: 70%; animation-delay: 5s; background: var(--accent); }
+        .particle:nth-child(7) { left: 70%; top: 50%; animation-delay: 2.5s; background: var(--primary); }
+        .particle:nth-child(8) { left: 80%; top: 25%; animation-delay: 4.5s; background: var(--secondary); }
+        .particle:nth-child(9) { left: 90%; top: 85%; animation-delay: 1.5s; background: var(--accent); }
+        .particle:nth-child(10) { left: 15%; top: 55%; animation-delay: 3.5s; background: var(--primary-light); }
+
+        @keyframes floatParticle {
+            0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+            25% { transform: translate(30px, -50px) scale(1.2); opacity: 0.8; }
+            50% { transform: translate(-20px, -100px) scale(0.8); opacity: 0.4; }
+            75% { transform: translate(40px, -50px) scale(1.1); opacity: 0.7; }
+        }
+
+        /* Moving Grid Lines */
+        .grid-lines {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            background-image:
+                linear-gradient(rgba(20, 184, 166, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(20, 184, 166, 0.1) 1px, transparent 1px);
+            background-size: 60px 60px;
+            animation: gridMove 20s linear infinite;
+            opacity: 0.5;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(60px, 60px) rotate(1deg); }
+        }
+
+        /* Forecast Wave Lines */
+        .wave-container {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .wave {
+            position: absolute;
+            bottom: 0;
+            width: 200%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,60 C150,120 350,0 600,60 C850,120 1050,0 1200,60 L1200,120 L0,120 Z' fill='rgba(13,148,136,0.1)'/%3E%3C/svg%3E") repeat-x;
+            background-size: 600px 100%;
+            animation: waveMove 8s linear infinite;
+        }
+
+        .wave:nth-child(2) {
+            bottom: 10px;
+            opacity: 0.5;
+            animation: waveMove 10s linear infinite reverse;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,60 C150,120 350,0 600,60 C850,120 1050,0 1200,60 L1200,120 L0,120 Z' fill='rgba(14,165,233,0.1)'/%3E%3C/svg%3E") repeat-x;
+            background-size: 600px 100%;
+        }
+
+        .wave:nth-child(3) {
+            bottom: 20px;
+            opacity: 0.3;
+            animation: waveMove 12s linear infinite;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,60 C150,120 350,0 600,60 C850,120 1050,0 1200,60 L1200,120 L0,120 Z' fill='rgba(34,197,94,0.1)'/%3E%3C/svg%3E") repeat-x;
+            background-size: 600px 100%;
+        }
+
+        @keyframes waveMove {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-600px); }
+        }
+
+        /* Floating Numbers */
+        .floating-numbers {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            opacity: 0.15;
+        }
+
+        .floating-num {
+            position: absolute;
+            color: var(--primary-light);
+            font-size: 1.5rem;
+            animation: floatNum 20s infinite linear;
+        }
+
+        .floating-num:nth-child(1) { left: 5%; animation-delay: 0s; }
+        .floating-num:nth-child(2) { left: 15%; animation-delay: 2s; }
+        .floating-num:nth-child(3) { left: 25%; animation-delay: 4s; }
+        .floating-num:nth-child(4) { left: 35%; animation-delay: 6s; }
+        .floating-num:nth-child(5) { left: 45%; animation-delay: 8s; }
+        .floating-num:nth-child(6) { left: 55%; animation-delay: 10s; }
+        .floating-num:nth-child(7) { left: 65%; animation-delay: 12s; }
+        .floating-num:nth-child(8) { left: 75%; animation-delay: 14s; }
+        .floating-num:nth-child(9) { left: 85%; animation-delay: 16s; }
+        .floating-num:nth-child(10) { left: 95%; animation-delay: 18s; }
+
+        @keyframes floatNum {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.15; }
+            90% { opacity: 0.15; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* Network Nodes */
+        .network-nodes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .node {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 20px var(--accent);
+            animation: nodePulse 3s infinite ease-in-out;
+        }
+
+        .node::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100px;
+            height: 1px;
+            background: linear-gradient(90deg, var(--accent), transparent);
+            transform-origin: left center;
+            animation: nodeConnect 4s infinite ease-in-out;
+        }
+
+        .node:nth-child(1) { top: 15%; left: 10%; animation-delay: 0s; }
+        .node:nth-child(2) { top: 25%; left: 30%; animation-delay: 0.5s; }
+        .node:nth-child(3) { top: 45%; left: 20%; animation-delay: 1s; }
+        .node:nth-child(4) { top: 65%; left: 15%; animation-delay: 1.5s; }
+        .node:nth-child(5) { top: 20%; left: 70%; animation-delay: 2s; }
+        .node:nth-child(6) { top: 50%; left: 85%; animation-delay: 2.5s; }
+
+        .node:nth-child(1)::before { transform: rotate(30deg); }
+        .node:nth-child(2)::before { transform: rotate(-45deg); }
+        .node:nth-child(3)::before { transform: rotate(60deg); }
+        .node:nth-child(4)::before { transform: rotate(-20deg); }
+        .node:nth-child(5)::before { transform: rotate(45deg); }
+        .node:nth-child(6)::before { transform: rotate(-60deg); }
+
+        @keyframes nodePulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 20px var(--accent); }
+            50% { transform: scale(1.5); box-shadow: 0 0 40px var(--accent), 0 0 60px var(--primary); }
+        }
+
+        @keyframes nodeConnect {
+            0%, 100% { opacity: 0.3; width: 100px; }
+            50% { opacity: 0.8; width: 150px; }
+        }
+
+        /* Chart Line Animation */
+        .chart-line {
+            position: absolute;
+            bottom: 100px;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            opacity: 0.3;
+        }
+
+        .chart-line svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .chart-path {
+            fill: none;
+            stroke: var(--primary-light);
+            stroke-width: 2;
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: drawChart 5s ease-in-out infinite;
+        }
+
+        .chart-path-2 {
+            stroke: var(--secondary);
+            animation-delay: 1s;
+        }
+
+        .chart-path-3 {
+            stroke: var(--accent);
+            animation-delay: 2s;
+        }
+
+        @keyframes drawChart {
+            0% { stroke-dashoffset: 1000; }
+            50% { stroke-dashoffset: 0; }
+            100% { stroke-dashoffset: -1000; }
+        }
+
+        /* Glowing orbs */
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            animation: orbFloat 10s infinite ease-in-out;
+        }
+
+        .orb-1 {
+            width: 300px;
+            height: 300px;
+            background: rgba(13, 148, 136, 0.3);
+            top: 10%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+
+        .orb-2 {
+            width: 200px;
+            height: 200px;
+            background: rgba(14, 165, 233, 0.25);
+            top: 60%;
+            right: 10%;
+            animation-delay: 3s;
+        }
+
+        .orb-3 {
+            width: 250px;
+            height: 250px;
+            background: rgba(34, 197, 94, 0.2);
+            bottom: 10%;
+            left: 30%;
+            animation-delay: 6s;
+        }
+
+        @keyframes orbFloat {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -30px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
         }
 
         .hero-container {
@@ -1110,6 +1364,71 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
+        <!-- Animated Background -->
+        <div class="bg-animation">
+            <!-- Glowing Orbs -->
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
+
+            <!-- Moving Grid -->
+            <div class="grid-lines"></div>
+
+            <!-- Floating Particles -->
+            <div class="particles">
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+            </div>
+
+            <!-- Network Nodes -->
+            <div class="network-nodes">
+                <div class="node"></div>
+                <div class="node"></div>
+                <div class="node"></div>
+                <div class="node"></div>
+                <div class="node"></div>
+                <div class="node"></div>
+            </div>
+
+            <!-- Floating Numbers -->
+            <div class="floating-numbers">
+                <span class="floating-num">0.95</span>
+                <span class="floating-num">μ</span>
+                <span class="floating-num">σ²</span>
+                <span class="floating-num">∑</span>
+                <span class="floating-num">β</span>
+                <span class="floating-num">R²</span>
+                <span class="floating-num">λ</span>
+                <span class="floating-num">∂</span>
+                <span class="floating-num">π</span>
+                <span class="floating-num">∞</span>
+            </div>
+
+            <!-- Chart Lines -->
+            <div class="chart-line">
+                <svg viewBox="0 0 1200 150" preserveAspectRatio="none">
+                    <path class="chart-path" d="M0,75 Q100,20 200,60 T400,40 T600,80 T800,30 T1000,70 T1200,50"/>
+                    <path class="chart-path chart-path-2" d="M0,100 Q100,60 200,90 T400,70 T600,110 T800,60 T1000,100 T1200,80"/>
+                    <path class="chart-path chart-path-3" d="M0,50 Q100,90 200,40 T400,80 T600,30 T800,90 T1000,40 T1200,70"/>
+                </svg>
+            </div>
+
+            <!-- Waves -->
+            <div class="wave-container">
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+            </div>
+        </div>
+
         <div class="hero-container">
             <div class="hero-content">
                 <span class="hero-badge"><i class="fas fa-chart-line"></i> Statistical Forecasting & Data Science</span>
