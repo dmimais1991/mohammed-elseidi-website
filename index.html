@@ -557,6 +557,281 @@
 
         .corr-cell {
             width: 18px;
+
+        /* ===== SEASONAL PATTERNS ===== */
+
+        /* Seasonal Wave Pattern */
+        .seasonal-wave {
+            position: absolute;
+            bottom: 30%;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            opacity: 0.7;
+            overflow: hidden;
+        }
+
+        .seasonal-wave svg {
+            width: 200%;
+            height: 100%;
+            animation: seasonalMove 10s linear infinite;
+        }
+
+        .season-path {
+            fill: none;
+            stroke-width: 4;
+            stroke-linecap: round;
+        }
+
+        .season-spring {
+            stroke: #22c55e;
+            filter: drop-shadow(0 0 15px #22c55e) drop-shadow(0 0 30px #4ade80);
+            animation: seasonPulse 3s ease-in-out infinite;
+        }
+
+        .season-summer {
+            stroke: #f59e0b;
+            filter: drop-shadow(0 0 15px #f59e0b) drop-shadow(0 0 30px #fbbf24);
+            animation: seasonPulse 3s ease-in-out infinite 0.75s;
+        }
+
+        .season-autumn {
+            stroke: #ef4444;
+            filter: drop-shadow(0 0 15px #ef4444) drop-shadow(0 0 30px #f87171);
+            animation: seasonPulse 3s ease-in-out infinite 1.5s;
+        }
+
+        .season-winter {
+            stroke: #3b82f6;
+            filter: drop-shadow(0 0 15px #3b82f6) drop-shadow(0 0 30px #60a5fa);
+            animation: seasonPulse 3s ease-in-out infinite 2.25s;
+        }
+
+        @keyframes seasonalMove {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        @keyframes seasonPulse {
+            0%, 100% { stroke-width: 3; opacity: 0.6; }
+            50% { stroke-width: 5; opacity: 1; }
+        }
+
+        /* Moving Average Bands */
+        .ma-bands {
+            position: absolute;
+            top: 25%;
+            right: 3%;
+            width: 280px;
+            height: 160px;
+            opacity: 0.75;
+        }
+
+        .ma-bands svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .ma-line {
+            fill: none;
+            stroke-width: 3;
+            stroke-dasharray: 400;
+            stroke-dashoffset: 400;
+            animation: drawMA 6s ease-in-out infinite;
+        }
+
+        .ma-fast {
+            stroke: #ec4899;
+            filter: drop-shadow(0 0 10px #ec4899);
+        }
+
+        .ma-slow {
+            stroke: #8b5cf6;
+            filter: drop-shadow(0 0 10px #8b5cf6);
+            animation-delay: 1s;
+        }
+
+        .ma-signal {
+            stroke: #06b6d4;
+            filter: drop-shadow(0 0 10px #06b6d4);
+            animation-delay: 2s;
+        }
+
+        @keyframes drawMA {
+            0% { stroke-dashoffset: 400; }
+            50% { stroke-dashoffset: 0; }
+            100% { stroke-dashoffset: -400; }
+        }
+
+        /* Trend Arrow */
+        .trend-arrow {
+            position: absolute;
+            top: 15%;
+            left: 15%;
+            width: 120px;
+            height: 120px;
+            opacity: 0.8;
+            animation: trendBounce 2s ease-in-out infinite;
+        }
+
+        .trend-arrow svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 0 20px #22c55e);
+        }
+
+        .trend-arrow path {
+            fill: none;
+            stroke: url(#trendGradient);
+            stroke-width: 4;
+            stroke-linecap: round;
+        }
+
+        @keyframes trendBounce {
+            0%, 100% { transform: translateY(0) rotate(-5deg); }
+            50% { transform: translateY(-15px) rotate(5deg); }
+        }
+
+        /* Confidence Interval Bands */
+        .confidence-bands {
+            position: absolute;
+            bottom: 10%;
+            left: 25%;
+            width: 350px;
+            height: 120px;
+            opacity: 0.6;
+        }
+
+        .confidence-bands svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .ci-band-95 {
+            fill: rgba(139, 92, 246, 0.2);
+            animation: ciBreathe 4s ease-in-out infinite;
+        }
+
+        .ci-band-80 {
+            fill: rgba(236, 72, 153, 0.3);
+            animation: ciBreathe 4s ease-in-out infinite 0.5s;
+        }
+
+        .ci-center {
+            fill: none;
+            stroke: #fbbf24;
+            stroke-width: 3;
+            filter: drop-shadow(0 0 10px #fbbf24);
+            stroke-dasharray: 300;
+            stroke-dashoffset: 300;
+            animation: drawCI 5s ease-in-out infinite;
+        }
+
+        @keyframes ciBreathe {
+            0%, 100% { opacity: 0.3; transform: scaleY(1); }
+            50% { opacity: 0.6; transform: scaleY(1.1); }
+        }
+
+        @keyframes drawCI {
+            0% { stroke-dashoffset: 300; }
+            50% { stroke-dashoffset: 0; }
+            100% { stroke-dashoffset: -300; }
+        }
+
+        /* Decomposition Components */
+        .decomp-box {
+            position: absolute;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.3), rgba(236, 72, 153, 0.3));
+            border: 2px solid rgba(251, 191, 36, 0.6);
+            border-radius: 12px;
+            padding: 12px 18px;
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #fbbf24;
+            backdrop-filter: blur(8px);
+            animation: decompFloat 8s ease-in-out infinite;
+            text-shadow: 0 0 15px #fbbf24, 0 0 30px #f59e0b;
+            box-shadow: 0 0 25px rgba(251, 191, 36, 0.4);
+        }
+
+        .decomp-box:nth-child(1) { top: 8%; right: 25%; animation-delay: 0s; }
+        .decomp-box:nth-child(2) { top: 50%; right: 2%; animation-delay: 2s; }
+        .decomp-box:nth-child(3) { bottom: 25%; left: 20%; animation-delay: 4s; }
+
+        @keyframes decompFloat {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(15px, -10px) scale(1.05); }
+            50% { transform: translate(-10px, -20px) scale(0.95); }
+            75% { transform: translate(10px, -5px) scale(1.02); }
+        }
+
+        /* Colorful Data Points Trail */
+        .data-trail {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .trail-dot {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            animation: trailMove 12s linear infinite;
+        }
+
+        .trail-dot:nth-child(1) { background: #ef4444; box-shadow: 0 0 20px #ef4444, 0 0 40px #ef4444; left: 10%; animation-delay: 0s; }
+        .trail-dot:nth-child(2) { background: #f59e0b; box-shadow: 0 0 20px #f59e0b, 0 0 40px #f59e0b; left: 20%; animation-delay: 1s; }
+        .trail-dot:nth-child(3) { background: #22c55e; box-shadow: 0 0 20px #22c55e, 0 0 40px #22c55e; left: 30%; animation-delay: 2s; }
+        .trail-dot:nth-child(4) { background: #3b82f6; box-shadow: 0 0 20px #3b82f6, 0 0 40px #3b82f6; left: 40%; animation-delay: 3s; }
+        .trail-dot:nth-child(5) { background: #8b5cf6; box-shadow: 0 0 20px #8b5cf6, 0 0 40px #8b5cf6; left: 50%; animation-delay: 4s; }
+        .trail-dot:nth-child(6) { background: #ec4899; box-shadow: 0 0 20px #ec4899, 0 0 40px #ec4899; left: 60%; animation-delay: 5s; }
+        .trail-dot:nth-child(7) { background: #06b6d4; box-shadow: 0 0 20px #06b6d4, 0 0 40px #06b6d4; left: 70%; animation-delay: 6s; }
+        .trail-dot:nth-child(8) { background: #fbbf24; box-shadow: 0 0 20px #fbbf24, 0 0 40px #fbbf24; left: 80%; animation-delay: 7s; }
+
+        @keyframes trailMove {
+            0% { top: 100%; opacity: 0; transform: scale(0.5); }
+            10% { opacity: 1; transform: scale(1); }
+            90% { opacity: 1; transform: scale(1); }
+            100% { top: -5%; opacity: 0; transform: scale(0.5); }
+        }
+
+        /* Forecast Fan Chart */
+        .forecast-fan {
+            position: absolute;
+            bottom: 5%;
+            right: 20%;
+            width: 200px;
+            height: 100px;
+            opacity: 0.7;
+        }
+
+        .forecast-fan svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .fan-layer {
+            animation: fanExpand 5s ease-in-out infinite;
+        }
+
+        .fan-layer-1 { fill: rgba(34, 197, 94, 0.15); }
+        .fan-layer-2 { fill: rgba(14, 165, 233, 0.2); }
+        .fan-layer-3 { fill: rgba(236, 72, 153, 0.25); }
+
+        .fan-center {
+            fill: none;
+            stroke: #fbbf24;
+            stroke-width: 3;
+            filter: drop-shadow(0 0 8px #fbbf24);
+        }
+
+        @keyframes fanExpand {
+            0%, 100% { transform: scaleY(1); opacity: 0.5; }
+            50% { transform: scaleY(1.2); opacity: 0.8; }
+        }
             height: 18px;
             border-radius: 4px;
             animation: corrPulse 2s ease-in-out infinite;
@@ -1713,6 +1988,77 @@
                 <div class="corr-cell"></div>
                 <div class="corr-cell"></div>
                 <div class="corr-cell"></div>
+            </div>
+
+            <!-- Seasonal Wave Pattern -->
+            <div class="seasonal-wave">
+                <svg viewBox="0 0 2400 200" preserveAspectRatio="none">
+                    <path class="season-path season-spring" d="M0,100 Q150,50 300,100 T600,100 T900,100 T1200,100 T1500,100 T1800,100 T2100,100 T2400,100"/>
+                    <path class="season-path season-summer" d="M0,120 Q150,70 300,120 T600,120 T900,120 T1200,120 T1500,120 T1800,120 T2100,120 T2400,120"/>
+                    <path class="season-path season-autumn" d="M0,140 Q150,90 300,140 T600,140 T900,140 T1200,140 T1500,140 T1800,140 T2100,140 T2400,140"/>
+                    <path class="season-path season-winter" d="M0,160 Q150,110 300,160 T600,160 T900,160 T1200,160 T1500,160 T1800,160 T2100,160 T2400,160"/>
+                </svg>
+            </div>
+
+            <!-- Moving Average Bands -->
+            <div class="ma-bands">
+                <svg viewBox="0 0 280 160" preserveAspectRatio="none">
+                    <path class="ma-line ma-fast" d="M0,120 Q40,100 80,80 T160,60 T240,40 T280,30"/>
+                    <path class="ma-line ma-slow" d="M0,140 Q40,130 80,110 T160,90 T240,70 T280,60"/>
+                    <path class="ma-line ma-signal" d="M0,130 Q40,115 80,95 T160,75 T240,55 T280,45"/>
+                </svg>
+            </div>
+
+            <!-- Trend Arrow -->
+            <div class="trend-arrow">
+                <svg viewBox="0 0 120 120" preserveAspectRatio="none">
+                    <defs>
+                        <linearGradient id="trendGradient" x1="0%" y1="100%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#22c55e"/>
+                            <stop offset="50%" style="stop-color:#0ea5e9"/>
+                            <stop offset="100%" style="stop-color:#ec4899"/>
+                        </linearGradient>
+                    </defs>
+                    <path d="M10,100 Q30,80 50,70 T90,30 L80,40 M90,30 L90,45"/>
+                </svg>
+            </div>
+
+            <!-- Confidence Interval Bands -->
+            <div class="confidence-bands">
+                <svg viewBox="0 0 350 120" preserveAspectRatio="none">
+                    <path class="ci-band-95" d="M0,90 Q50,80 100,70 T200,50 T300,30 L350,20 L350,100 L300,90 T200,70 T100,80 L0,90 Z"/>
+                    <path class="ci-band-80" d="M0,85 Q50,75 100,65 T200,50 T300,35 L350,30 L350,90 L300,80 T200,65 T100,75 L0,85 Z"/>
+                    <path class="ci-center" d="M0,80 Q50,70 100,60 T200,45 T300,30 L350,25"/>
+                </svg>
+            </div>
+
+            <!-- Decomposition Labels -->
+            <div class="formula-boxes" style="z-index: 5;">
+                <div class="decomp-box">TREND</div>
+                <div class="decomp-box">SEASONAL</div>
+                <div class="decomp-box">RESIDUAL</div>
+            </div>
+
+            <!-- Colorful Data Trail -->
+            <div class="data-trail">
+                <div class="trail-dot"></div>
+                <div class="trail-dot"></div>
+                <div class="trail-dot"></div>
+                <div class="trail-dot"></div>
+                <div class="trail-dot"></div>
+                <div class="trail-dot"></div>
+                <div class="trail-dot"></div>
+                <div class="trail-dot"></div>
+            </div>
+
+            <!-- Forecast Fan Chart -->
+            <div class="forecast-fan">
+                <svg viewBox="0 0 200 100" preserveAspectRatio="none">
+                    <path class="fan-layer fan-layer-1" d="M0,50 L100,50 L200,10 L200,90 L100,50 Z"/>
+                    <path class="fan-layer fan-layer-2" d="M0,50 L100,50 L200,20 L200,80 L100,50 Z"/>
+                    <path class="fan-layer fan-layer-3" d="M0,50 L100,50 L200,30 L200,70 L100,50 Z"/>
+                    <path class="fan-center" d="M0,50 L100,50 L200,50"/>
+                </svg>
             </div>
         </div>
 
