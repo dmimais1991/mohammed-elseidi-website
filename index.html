@@ -3,57 +3,1138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Mohammed Elseidi | Assistant Professor of Statistics</title>
-    <meta name="description" content="Dr. Mohammed Elseidi - Assistant Professor of Statistics at Umm Al-Quwain University. Expert in statistical modeling, forecasting, and machine learning.">
-    <link rel="stylesheet" href="styles.css">
+    <title>Dr. Mohammed Elseidi | Statistical Forecasting & Data Science</title>
+    <meta name="description" content="Dr. Mohammed Elseidi - Assistant Professor of Statistics specializing in forecasting, machine learning, and environmental data science.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== Root Variables - Environmental/Data Science Theme ===== */
+        :root {
+            --primary: #0d9488;
+            --primary-dark: #0f766e;
+            --primary-light: #14b8a6;
+            --secondary: #0ea5e9;
+            --secondary-dark: #0284c7;
+            --accent: #22c55e;
+            --accent-light: #4ade80;
+            --dark: #0f172a;
+            --dark-light: #1e293b;
+            --text: #334155;
+            --text-light: #64748b;
+            --white: #ffffff;
+            --off-white: #f8fafc;
+            --gradient-1: linear-gradient(135deg, #0d9488 0%, #0ea5e9 50%, #22c55e 100%);
+            --gradient-2: linear-gradient(135deg, #0f172a 0%, #0f766e 100%);
+            --gradient-3: linear-gradient(45deg, #14b8a6, #0ea5e9);
+            --shadow: 0 10px 40px rgba(13, 148, 136, 0.15);
+            --shadow-lg: 0 25px 50px rgba(13, 148, 136, 0.2);
+        }
+
+        /* ===== Reset & Base ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--off-white);
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--secondary);
+        }
+
+        /* ===== Navigation ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            background: var(--gradient-3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .nav-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--white);
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+
+        /* ===== Hero Section ===== */
+        .hero {
+            min-height: 100vh;
+            background: var(--gradient-2);
+            display: flex;
+            align-items: center;
+            padding: 100px 2rem 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 80%, rgba(14, 165, 233, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(34, 197, 94, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(13, 148, 136, 0.1) 0%, transparent 40%);
+            pointer-events: none;
+        }
+
+        /* Animated data particles */
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(2px 2px at 20px 30px, rgba(20, 184, 166, 0.4), transparent),
+                radial-gradient(2px 2px at 40px 70px, rgba(14, 165, 233, 0.3), transparent),
+                radial-gradient(2px 2px at 50px 160px, rgba(34, 197, 94, 0.3), transparent),
+                radial-gradient(2px 2px at 90px 40px, rgba(20, 184, 166, 0.4), transparent),
+                radial-gradient(2px 2px at 130px 80px, rgba(14, 165, 233, 0.3), transparent),
+                radial-gradient(2px 2px at 160px 120px, rgba(34, 197, 94, 0.4), transparent);
+            background-size: 200px 200px;
+            animation: sparkle 4s linear infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes sparkle {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-200px); }
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            color: var(--white);
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--gradient-3);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(20, 184, 166, 0.4); }
+            50% { box-shadow: 0 0 0 15px rgba(20, 184, 166, 0); }
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fff 0%, #a5f3fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.5rem;
+            color: var(--accent-light);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1.25rem 1.5rem;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            background: var(--gradient-3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--gradient-3);
+            color: var(--white);
+            box-shadow: 0 4px 20px rgba(13, 148, 136, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(13, 148, 136, 0.5);
+            color: var(--white);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--primary-light);
+            color: var(--white);
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary-light);
+            box-shadow:
+                0 0 0 8px rgba(20, 184, 166, 0.2),
+                0 0 0 16px rgba(20, 184, 166, 0.1),
+                0 25px 50px rgba(0, 0, 0, 0.3);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 100px;
+            height: 100px;
+            background: var(--accent);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float 4s ease-in-out infinite reverse;
+        }
+
+        .hero-image::after {
+            content: '';
+            position: absolute;
+            bottom: 20px;
+            left: -30px;
+            width: 60px;
+            height: 60px;
+            background: var(--secondary);
+            border-radius: 50%;
+            opacity: 0.4;
+            animation: float 5s ease-in-out infinite;
+        }
+
+        /* ===== Section Styles ===== */
+        .section {
+            padding: 5rem 2rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-3);
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .section-dark {
+            background: var(--dark);
+            color: var(--white);
+        }
+
+        .section-dark .section-header h2 {
+            color: var(--white);
+        }
+
+        .section-dark .section-header p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .section-gradient {
+            background: linear-gradient(180deg, var(--off-white) 0%, #ecfdf5 100%);
+        }
+
+        /* ===== Cards Grid ===== */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(13, 148, 136, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-3);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-3);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            color: var(--dark);
+            margin-bottom: 0.75rem;
+        }
+
+        .card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .card-dark {
+            background: var(--dark-light);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .card-dark h3 {
+            color: var(--white);
+        }
+
+        .card-dark p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* ===== Timeline ===== */
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: var(--gradient-3);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 50%;
+            position: relative;
+            margin-bottom: 3rem;
+        }
+
+        .timeline-item:nth-child(even) {
+            justify-content: flex-start;
+            padding-right: 0;
+            padding-left: 50%;
+        }
+
+        .timeline-content {
+            background: var(--white);
+            padding: 1.5rem 2rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            max-width: 450px;
+            margin-right: 30px;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-right: 0;
+            margin-left: 30px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border-radius: 50%;
+            border: 4px solid var(--white);
+            box-shadow: 0 0 0 4px var(--primary-light);
+        }
+
+        .timeline-date {
+            display: inline-block;
+            background: var(--gradient-3);
+            color: var(--white);
+            padding: 0.25rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .timeline-content h3 {
+            color: var(--dark);
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-content .org {
+            color: var(--primary);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        /* ===== Publications ===== */
+        .pub-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .pub-card:hover {
+            transform: translateX(8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .pub-card.q1 {
+            border-left-color: var(--accent);
+        }
+
+        .pub-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            color: var(--white);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .pub-card h3 {
+            color: var(--dark);
+            font-size: 1rem;
+            line-height: 1.5;
+            margin-bottom: 0.5rem;
+        }
+
+        .pub-journal {
+            color: var(--primary);
+            font-style: italic;
+            font-size: 0.9rem;
+        }
+
+        .pub-year {
+            color: var(--text-light);
+            font-size: 0.85rem;
+            margin-top: 0.25rem;
+        }
+
+        /* ===== Awards ===== */
+        .award-card {
+            background: var(--gradient-2);
+            color: var(--white);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .award-card::before {
+            content: '';
+            position: absolute;
+            right: -50px;
+            top: -50px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(34, 197, 94, 0.3) 0%, transparent 70%);
+        }
+
+        .award-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent-light);
+        }
+
+        .award-card .org {
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        .award-card .date {
+            opacity: 0.7;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        /* ===== Media Coverage ===== */
+        .media-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 1.5rem;
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+            box-shadow: var(--shadow);
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .media-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .media-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #ef4444, #f97316);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--white);
+            flex-shrink: 0;
+        }
+
+        .media-content h3 {
+            color: var(--dark);
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .media-content .date {
+            color: var(--text-light);
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .media-content p {
+            color: var(--text);
+            font-size: 0.95rem;
+        }
+
+        /* ===== Skills ===== */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .skill-category h3 {
+            color: var(--dark);
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .skill-category h3 i {
+            color: var(--primary);
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, rgba(13, 148, 136, 0.1), rgba(14, 165, 233, 0.1));
+            color: var(--primary-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(13, 148, 136, 0.2);
+        }
+
+        .skill-tag:hover {
+            background: var(--gradient-3);
+            color: var(--white);
+            transform: scale(1.05);
+        }
+
+        /* ===== Memberships ===== */
+        .membership-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+
+        .membership-item {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 1.25rem 1.5rem;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .membership-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(5px);
+        }
+
+        .membership-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--gradient-3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            color: var(--white);
+            flex-shrink: 0;
+        }
+
+        .membership-item span {
+            color: var(--white);
+            font-size: 0.95rem;
+        }
+
+        /* ===== Contact ===== */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .contact-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .contact-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.25rem;
+            font-size: 1.75rem;
+            color: var(--white);
+        }
+
+        .contact-card h3 {
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-card p,
+        .contact-card a {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* ===== Footer ===== */
+        .footer {
+            background: var(--dark);
+            color: var(--white);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-light);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.25rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--gradient-3);
+            transform: translateY(-5px);
+            color: var(--white);
+        }
+
+        .copyright {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+
+            .hero-image img {
+                width: 280px;
+                height: 280px;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                padding-left: 60px;
+                padding-right: 0;
+                justify-content: flex-start;
+            }
+
+            .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            .timeline-dot {
+                left: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--dark);
+                flex-direction: column;
+                padding: 1rem;
+                gap: 0;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 1rem;
+                text-align: center;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-stats {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .stat-card {
+                flex: 1 1 120px;
+            }
+
+            .section {
+                padding: 3rem 1rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .media-card {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .hero-image img {
+                width: 220px;
+                height: 220px;
+            }
+        }
+
+        /* ===== List styles for sections ===== */
+        .role-list, .review-list {
+            list-style: none;
+        }
+
+        .role-list li, .review-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .role-list li:last-child, .review-list li:last-child {
+            border-bottom: none;
+        }
+
+        .role-list .role-icon, .review-list .review-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-3);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            flex-shrink: 0;
+        }
+
+        .role-list .role-content h4, .review-list .review-content h4 {
+            color: var(--white);
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .role-list .role-content p, .review-list .review-content p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        .role-list .role-content .date, .review-list .review-content .date {
+            color: var(--primary-light);
+            font-size: 0.8rem;
+        }
+
+        /* Two column layout for roles */
+        .two-col {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .two-col {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="nav-logo">Dr. Mohammed Elseidi</a>
+            <a href="#" class="nav-logo">Dr. Mohammed Elseidi</a>
             <div class="nav-toggle" onclick="toggleNav()">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
             <ul class="nav-links" id="navLinks">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="experience.html">Experience</a></li>
-                <li><a href="publications.html">Publications</a></li>
-                <li><a href="education.html">Education</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#leadership">Leadership</a></li>
+                <li><a href="#editorial">Editorial</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#awards">Awards</a></li>
+                <li><a href="#media">Media</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="home">
         <div class="hero-container">
             <div class="hero-content">
+                <span class="hero-badge"><i class="fas fa-chart-line"></i> Statistical Forecasting & Data Science</span>
                 <h1>Dr. Mohammed Elseidi</h1>
-                <p class="title">Assistant Professor of Statistics</p>
-                <p>An accomplished researcher with a Ph.D. from the University of Padova, Italy — ranked among the <strong>top 100 universities globally for Statistics</strong>. Specializing in advancing statistical modeling, forecasting, and machine learning applications.</p>
+                <p class="subtitle">Assistant Professor of Statistics</p>
+                <p>Ph.D. from University of Padova, Italy — ranked among the <strong>top 100 universities globally for Statistics</strong>. Advancing statistical modeling, forecasting, and environmental data science.</p>
 
                 <div class="hero-stats">
-                    <div class="stat-item">
+                    <div class="stat-card">
                         <div class="stat-number">1.84</div>
                         <div class="stat-label">FWCI Score</div>
                     </div>
-                    <div class="stat-item">
+                    <div class="stat-card">
                         <div class="stat-number">84%</div>
                         <div class="stat-label">Above World Avg</div>
                     </div>
-                    <div class="stat-item">
+                    <div class="stat-card">
                         <div class="stat-number">Q1</div>
                         <div class="stat-label">Top Journals</div>
                     </div>
                 </div>
 
                 <div class="hero-buttons">
-                    <a href="publications.html" class="btn btn-primary">View Publications</a>
-                    <a href="contact.html" class="btn btn-secondary">Get in Touch</a>
+                    <a href="#publications" class="btn btn-primary"><i class="fas fa-book"></i> View Publications</a>
+                    <a href="#contact" class="btn btn-outline"><i class="fas fa-envelope"></i> Get in Touch</a>
                 </div>
             </div>
             <div class="hero-image">
@@ -63,17 +1144,17 @@
     </section>
 
     <!-- About Section -->
-    <section class="section section-light">
+    <section class="section section-gradient" id="about">
         <div class="container">
-            <div class="section-title">
+            <div class="section-header">
                 <h2>About Me</h2>
-                <p>Advancing statistical science through innovative research</p>
+                <p>Advancing statistical science through innovative research and environmental forecasting</p>
             </div>
             <div class="cards-grid">
                 <div class="card">
                     <div class="card-icon"><i class="fas fa-university"></i></div>
                     <h3>Academic Excellence</h3>
-                    <p>Ph.D. from the University of Padova, Italy — ranked among the top 100 universities globally for Statistics. Currently serving as Assistant Professor at Umm Al-Quwain University, UAE.</p>
+                    <p>Ph.D. from University of Padova, Italy — ranked among the top 100 universities globally for Statistics. Currently serving as Assistant Professor at Umm Al-Quwain University, UAE.</p>
                 </div>
                 <div class="card">
                     <div class="card-icon"><i class="fas fa-chart-line"></i></div>
@@ -86,111 +1167,376 @@
                     <p>Winner of the prestigious 2024/2025 "Wellbeing Economy Award" by Greenpeace MENA, Ajman University, and UAE Universities Climate Network.</p>
                 </div>
                 <div class="card">
-                    <div class="card-icon"><i class="fas fa-edit"></i></div>
-                    <h3>Editorial Leadership</h3>
-                    <p>Review Editor for Meteorological Applications (RMetS) and Frontiers in Climate. Certified peer reviewer for multiple high-impact journals.</p>
+                    <div class="card-icon"><i class="fas fa-wind"></i></div>
+                    <h3>Environmental Forecasting</h3>
+                    <p>Developing hybrid models (MSTL-NNAR, STR-NBEATS) for wind speed and temperature prediction using innovative time series decomposition methods.</p>
                 </div>
-                <div class="card">
-                    <div class="card-icon"><i class="fas fa-globe"></i></div>
-                    <h3>International Expert</h3>
-                    <p>Expert at IUCN Commission on Environmental, Economic and Social Policy (CEESP). Member of Abu Dhabi Environmental Research Network.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon"><i class="fas fa-laptop-code"></i></div>
-                    <h3>Technical Expertise</h3>
-                    <p>Proficient in R, Python, MATLAB for statistical computing. Expert in time series analysis, machine learning, and forecasting methodologies.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Research Focus Section -->
-    <section class="section section-dark">
-        <div class="container">
-            <div class="section-title">
-                <h2>Research Focus</h2>
-                <p>Key areas of expertise and contribution</p>
-            </div>
-            <div class="cards-grid">
                 <div class="card">
                     <div class="card-icon"><i class="fas fa-brain"></i></div>
                     <h3>Machine Learning & AI</h3>
-                    <p>Developing hybrid models combining classical statistics with deep learning for enhanced forecasting accuracy.</p>
+                    <p>Integrating deep learning with classical statistics for enhanced forecasting. Expert in neural networks (NBEATS, NNAR) and ensemble methods.</p>
                 </div>
                 <div class="card">
-                    <div class="card-icon"><i class="fas fa-wind"></i></div>
-                    <h3>Environmental Forecasting</h3>
-                    <p>Wind speed and temperature prediction using innovative time series decomposition methods (MSTL-NNAR, STR-NBEATS).</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon"><i class="fas fa-heart"></i></div>
-                    <h3>Wellbeing Analytics</h3>
-                    <p>Building composite happiness indices and wellbeing metrics for the UAE using advanced statistical frameworks.</p>
+                    <div class="card-icon"><i class="fas fa-leaf"></i></div>
+                    <h3>IUCN Expert</h3>
+                    <p>Expert at IUCN Commission on Environmental, Economic and Social Policy (CEESP). Member of Abu Dhabi Environmental Research Network.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Latest Publications Preview -->
-    <section class="section section-light">
+    <!-- Work Experience Section -->
+    <section class="section" id="experience">
         <div class="container">
-            <div class="section-title">
-                <h2>Featured Publications</h2>
-                <p>Recent contributions to statistical science</p>
+            <div class="section-header">
+                <h2>Work Experience</h2>
+                <p>Academic and research positions</p>
             </div>
-            <div class="publication-card q1">
-                <span class="publication-badge">Q1 in AI</span>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Feb 2024 - Present</span>
+                        <h3>Assistant Professor of Statistics</h3>
+                        <p class="org">Umm Al Quwain University, UAE</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">May 2022 - Nov 2022</span>
+                        <h3>Visiting Assistant Professor</h3>
+                        <p class="org">University of Padova, Italy</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Jul 2020 - Feb 2024</span>
+                        <h3>Assistant Professor of Statistics</h3>
+                        <p class="org">Mansoura University, Egypt</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Oct 2012 - Jul 2020</span>
+                        <h3>University Teaching Assistant</h3>
+                        <p class="org">Mansoura University, Egypt</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Roles Section -->
+    <section class="section section-dark" id="leadership">
+        <div class="container">
+            <div class="section-header">
+                <h2>Administrative & Leadership Roles</h2>
+                <p>Committee chairs, program coordination, and institutional governance</p>
+            </div>
+            <div class="two-col">
+                <div>
+                    <ul class="role-list">
+                        <li>
+                            <div class="role-icon"><i class="fas fa-users-cog"></i></div>
+                            <div class="role-content">
+                                <h4>Chair, Operational Plan Committee</h4>
+                                <p>College of Arts and Sciences, Umm Al-Quwain University</p>
+                                <span class="date">Fall 2024 - 2025</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="role-icon"><i class="fas fa-shield-alt"></i></div>
+                            <div class="role-content">
+                                <h4>Chair, Cybersecurity Hiring Committee</h4>
+                                <p>Cybersecurity Program, Umm Al-Quwain University</p>
+                                <span class="date">May 2025</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="role-icon"><i class="fas fa-digital-tachograph"></i></div>
+                            <div class="role-content">
+                                <h4>Supervisor, Technical Office (Digital Transformation)</h4>
+                                <p>Faculty of Commerce, Mansoura University</p>
+                                <span class="date">Feb 2023 - Present</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <ul class="role-list">
+                        <li>
+                            <div class="role-icon"><i class="fas fa-book-open"></i></div>
+                            <div class="role-content">
+                                <h4>Coordinator, International Publishing Program</h4>
+                                <p>Faculty of Commerce, Mansoura University</p>
+                                <span class="date">Nov 2022 - Present</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="role-icon"><i class="fas fa-database"></i></div>
+                            <div class="role-content">
+                                <h4>Representative, Egyptian Knowledge Bank</h4>
+                                <p>Faculty of Commerce, Mansoura University</p>
+                                <span class="date">Jun 2021 - Present</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="role-icon"><i class="fas fa-certificate"></i></div>
+                            <div class="role-content">
+                                <h4>Coordinator, Quality Assurance Unit</h4>
+                                <p>Department of Applied Statistics, Mansoura University</p>
+                                <span class="date">Dec 2015 - Sep 2016</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section-header" style="margin-top: 4rem;">
+                <h2>University Committee Memberships</h2>
+            </div>
+            <div class="cards-grid">
+                <div class="card card-dark">
+                    <div class="card-icon"><i class="fas fa-user-graduate"></i></div>
+                    <h3>General Education Hiring Committee</h3>
+                    <p>May 2025 - Contributed to faculty staffing decisions for university-wide general education courses.</p>
+                </div>
+                <div class="card card-dark">
+                    <div class="card-icon"><i class="fas fa-book"></i></div>
+                    <h3>Library Book Donations Committee</h3>
+                    <p>May 2025 - Reviewed and approved book donations to ensure alignment with university standards.</p>
+                </div>
+                <div class="card card-dark">
+                    <div class="card-icon"><i class="fas fa-flask"></i></div>
+                    <h3>Scientific Research Committee</h3>
+                    <p>Jan 2024 - Present - Support research strategy and enhance faculty research output at College of Arts and Sciences.</p>
+                </div>
+                <div class="card card-dark">
+                    <div class="card-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h3>Graduate Studies Committee</h3>
+                    <p>Jan 2024 - Present - Contribute to academic oversight and curriculum development for Sociology Graduate Program.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Editorial Roles Section -->
+    <section class="section section-gradient" id="editorial">
+        <div class="container">
+            <div class="section-header">
+                <h2>Reviewer & Editorial Roles</h2>
+                <p>Contributing to scholarly peer review and editorial leadership</p>
+            </div>
+
+            <div class="cards-grid" style="margin-bottom: 3rem;">
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-cloud-sun"></i></div>
+                    <h3>Review Editor</h3>
+                    <p><strong>Meteorological Applications</strong><br>Royal Meteorological Society (RMetS)</p>
+                    <p style="color: var(--primary); margin-top: 0.5rem;">Jun 2024 - Present</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-temperature-high"></i></div>
+                    <h3>Review Editor</h3>
+                    <p><strong>Frontiers in Climate</strong><br>Climate Monitoring Section - Frontiers</p>
+                    <p style="color: var(--primary); margin-top: 0.5rem;">Jun 2024 - Present</p>
+                </div>
+            </div>
+
+            <h3 style="color: var(--dark); margin-bottom: 1.5rem; text-align: center;"><i class="fas fa-check-double"></i> Certified Peer Reviewer</h3>
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>Stochastic Environmental Research and Risk Assessment</h3>
+                    <p>5 manuscripts reviewed (2024-2025)</p>
+                </div>
+                <div class="card">
+                    <h3>Journal of Hydrometeorology</h3>
+                    <p>American Meteorological Society - 1 manuscript (2024)</p>
+                </div>
+                <div class="card">
+                    <h3>Scientific Reports</h3>
+                    <p>1 manuscript reviewed (2025)</p>
+                </div>
+                <div class="card">
+                    <h3>Energy Systems</h3>
+                    <p>1 manuscript reviewed (2025)</p>
+                </div>
+                <div class="card">
+                    <h3>Forecasting (MDPI)</h3>
+                    <p>1 manuscript reviewed (2025)</p>
+                </div>
+                <div class="card">
+                    <h3>Frontiers Journals</h3>
+                    <p>3 review publications</p>
+                </div>
+            </div>
+
+            <div class="section-header" style="margin-top: 4rem;">
+                <h2>Professional Affiliations & Expert Roles</h2>
+            </div>
+            <div class="cards-grid" style="max-width: 900px; margin: 0 auto;">
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-leaf"></i></div>
+                    <h3>Expert, CEESP</h3>
+                    <p><strong>Commission on Environmental, Economic and Social Policy</strong><br>International Union for Conservation of Nature (IUCN)</p>
+                    <p style="color: var(--primary); margin-top: 0.5rem;">Nov 2024 - Present</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-water"></i></div>
+                    <h3>Member, Environmental Research Network</h3>
+                    <p><strong>Abu Dhabi Environmental Research Network</strong><br>Environment Agency - Abu Dhabi (EAD)</p>
+                    <p style="color: var(--primary); margin-top: 0.5rem;">Apr 2024 - Present</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="section" id="education">
+        <div class="container">
+            <div class="section-header">
+                <h2>Education</h2>
+                <p>Academic journey and qualifications</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Sep 2016 - Feb 2020</span>
+                        <h3>Ph.D. in Statistics</h3>
+                        <p class="org">University of Padova, Padova, Italy</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Sep 2013 - Sep 2015</span>
+                        <h3>Master Degree in Applied Statistics</h3>
+                        <p class="org">Mansoura University, Egypt</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Sep 2008 - Jun 2012</span>
+                        <h3>Bachelor in Commerce, Major Applied Statistics</h3>
+                        <p class="org">Mansoura University, Egypt</p>
+                        <p style="color: var(--accent); margin-top: 0.5rem; font-weight: 600;"><i class="fas fa-trophy"></i> Ranked 1st in the department</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section class="section section-dark" id="publications">
+        <div class="container">
+            <div class="section-header">
+                <h2>Selected Publications</h2>
+                <p>FWCI of 1.84 — citation rate 84% above world average</p>
+            </div>
+
+            <h3 style="color: var(--accent-light); margin-bottom: 1.5rem;"><i class="fas fa-calendar-alt"></i> 2025</h3>
+
+            <div class="pub-card q1">
+                <span class="pub-badge">Q1 in AI</span>
                 <h3>From classical models to artificial intelligence models: Prospects for crime prediction in the era of big data</h3>
-                <p class="journal">International Journal of Data and Network Science, 9(4), 803-812</p>
-                <p class="year">2025</p>
+                <p class="pub-journal">International Journal of Data and Network Science, 9(4), 803-812</p>
+                <p class="pub-year"><strong>Elseidi, M.</strong> (2025)</p>
             </div>
-            <div class="publication-card q1">
-                <span class="publication-badge">Top 10, Q1 Stats, Scopus</span>
+
+            <div class="pub-card q1">
+                <span class="pub-badge">Top 10, Q1 Stats, Scopus</span>
                 <h3>STR-NBEATS: A novel hybrid framework integrating time series decomposition with deep learning for enhanced temperature forecasting</h3>
-                <p class="journal">Modeling Earth Systems and Environment, 11(4), 255</p>
-                <p class="year">2025</p>
+                <p class="pub-journal">Modeling Earth Systems and Environment, 11(4), 255</p>
+                <p class="pub-year"><strong>Elseidi, M.</strong> (2025)</p>
             </div>
-            <div class="publication-card q1">
-                <span class="publication-badge">Top 10, Q1 Stats, WoS</span>
+
+            <h3 style="color: var(--accent-light); margin: 2rem 0 1.5rem;"><i class="fas fa-calendar-alt"></i> 2024</h3>
+
+            <div class="pub-card q1">
+                <span class="pub-badge">Top 10, Q1 Stats, WoS</span>
                 <h3>MSTL-NNAR: A new hybrid model of machine learning and time series decomposition for wind speed forecasting</h3>
-                <p class="journal">Stochastic Environmental Research and Risk Assessment, 38(7), 2613-2632</p>
-                <p class="year">2024</p>
+                <p class="pub-journal">Stochastic Environmental Research and Risk Assessment, 38(7), 2613-2632</p>
+                <p class="pub-year"><strong>Elseidi, M.</strong> (2024)</p>
             </div>
-            <div style="text-align: center; margin-top: 2rem;">
-                <a href="publications.html" class="btn btn-primary">View All Publications</a>
+
+            <div class="pub-card q1">
+                <span class="pub-badge">Top 10, Q1 Stats, Scopus</span>
+                <h3>A hybrid Facebook Prophet-ARIMA framework for forecasting high-frequency temperature data</h3>
+                <p class="pub-journal">Modeling Earth Systems and Environment, 10(2), 1855-1867</p>
+                <p class="pub-year"><strong>Elseidi, M.</strong> (2024)</p>
+            </div>
+
+            <h3 style="color: var(--accent-light); margin: 2rem 0 1.5rem;"><i class="fas fa-calendar-alt"></i> 2023</h3>
+
+            <div class="pub-card">
+                <h3>Quantile regression-based seasonal adjustment</h3>
+                <p class="pub-journal">International Journal of Computational Economics and Econometrics, 13(3), 270-304</p>
+                <p class="pub-year"><strong>Caporin, M., & Elseidi, M.</strong> (2023)</p>
+            </div>
+
+            <div class="pub-card q1">
+                <span class="pub-badge">Top 10, Q1 Stats, Scopus</span>
+                <h3>Forecasting temperature data with complex seasonality using time series methods</h3>
+                <p class="pub-journal">Modeling Earth Systems and Environment, 9(2), 2553-2567</p>
+                <p class="pub-year"><strong>Elseidi, M.</strong> (2023)</p>
+            </div>
+
+            <h3 style="color: var(--accent-light); margin: 3rem 0 1.5rem;"><i class="fas fa-hourglass-half"></i> Manuscripts Under Peer Review</h3>
+
+            <div class="pub-card" style="border-left-color: var(--secondary);">
+                <h3>A Meta-Ensemble Learning Framework for Accurate Wind Speed Forecasting in Environmental Systems</h3>
+                <p class="pub-journal">Submitted to Advances in Decision Sciences</p>
+                <p class="pub-year"><strong>Elseidi, M.</strong></p>
+            </div>
+
+            <div class="pub-card" style="border-left-color: var(--secondary);">
+                <h3>High-Frequency Forecasting and Cultural Analytics of ChatGPT Adoption in the UAE</h3>
+                <p class="pub-journal">Submitted to IEEE Transactions on Computational Social Systems</p>
+                <p class="pub-year"><strong>Elseidi, M.</strong></p>
+            </div>
+
+            <div class="pub-card" style="border-left-color: var(--secondary);">
+                <h3>A High-Frequency Composite Happiness Index for the United Arab Emirates</h3>
+                <p class="pub-journal">Submitted to SN Social Sciences</p>
+                <p class="pub-year"><strong>Elseidi, M.</strong></p>
             </div>
         </div>
     </section>
 
     <!-- Awards Section -->
-    <section class="section section-dark">
+    <section class="section" id="awards">
         <div class="container">
-            <div class="section-title">
+            <div class="section-header">
                 <h2>Honors & Awards</h2>
                 <p>Recognition for excellence in research</p>
             </div>
             <div class="award-card">
-                <h3>Second Place, "Wellbeing Economy Award" 2024/2025</h3>
-                <p class="organization">Greenpeace MENA, Ajman University, and UAE Universities Climate Network</p>
+                <h3><i class="fas fa-trophy"></i> Second Place, "Wellbeing Economy Award" 2024/2025</h3>
+                <p class="org">Greenpeace MENA, Ajman University, and UAE Universities Climate Network</p>
                 <p class="date">Project: "Building and Forecasting a Hybrid Well-being Index for the UAE"</p>
             </div>
             <div class="award-card">
-                <h3>Google Scholarship Program - Data Analytics</h3>
-                <p class="organization">Google via Coursera - UCCD Project</p>
+                <h3><i class="fab fa-google"></i> Google Scholarship Program - Data Analytics on Coursera</h3>
+                <p class="org">UCCD Project</p>
                 <p class="date">August 2021</p>
             </div>
             <div class="award-card">
-                <h3>Winner of the Doctoral Scholarship</h3>
-                <p class="organization">University of Padova, Italy</p>
+                <h3><i class="fas fa-graduation-cap"></i> Winner of the Doctoral Scholarship</h3>
+                <p class="org">University of Padova, Italy</p>
                 <p class="date">June 2016</p>
             </div>
         </div>
     </section>
 
-    <!-- Media Coverage -->
-    <section class="section section-light">
+    <!-- Media Coverage Section -->
+    <section class="section section-gradient" id="media">
         <div class="container">
-            <div class="section-title">
+            <div class="section-header">
                 <h2>Media Coverage</h2>
                 <p>Featured in news and publications</p>
             </div>
@@ -213,15 +1559,124 @@
         </div>
     </section>
 
+    <!-- Skills Section -->
+    <section class="section" id="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2>Digital Skills</h2>
+                <p>Technical proficiencies and tools</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Programming Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">R</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">MATLAB</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-chart-pie"></i> Statistical Software</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">SPSS</span>
+                        <span class="skill-tag">Statgraphics</span>
+                        <span class="skill-tag">JMP</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-file-alt"></i> Writing Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Advanced LaTeX</span>
+                        <span class="skill-tag">Microsoft Office</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Networks & Memberships -->
+    <section class="section section-dark">
+        <div class="container">
+            <div class="section-header">
+                <h2>Networks & Memberships</h2>
+                <p>Professional affiliations and communities</p>
+            </div>
+            <div class="membership-grid">
+                <div class="membership-item">
+                    <div class="membership-icon"><i class="fas fa-chart-bar"></i></div>
+                    <span>The International Institute of Forecasters (IIF)</span>
+                </div>
+                <div class="membership-item">
+                    <div class="membership-icon"><i class="fas fa-map-marked-alt"></i></div>
+                    <span>Expert in UAE Research Map</span>
+                </div>
+                <div class="membership-item">
+                    <div class="membership-icon"><i class="fas fa-users"></i></div>
+                    <span>The Irish Statistical Association (ISA)</span>
+                </div>
+                <div class="membership-item">
+                    <div class="membership-icon"><i class="fas fa-industry"></i></div>
+                    <span>European Network for Business and Industrial Statistics</span>
+                </div>
+                <div class="membership-item">
+                    <div class="membership-icon"><i class="fas fa-landmark"></i></div>
+                    <span>Member of Italian Econometric Society (SIDE)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section section-gradient" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get In Touch</h2>
+                <p>Available for research collaborations and academic inquiries</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                    <h3>Email</h3>
+                    <a href="mailto:drmohammed.elseidi@uaqu.ac.ae">drmohammed.elseidi@uaqu.ac.ae</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                    <h3>Phone</h3>
+                    <p>(+971) 502526435</p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <h3>Address</h3>
+                    <p>P.O.Box: 536, Umm Al-Quwain University, UAE</p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon"><i class="fab fa-linkedin-in"></i></div>
+                    <h3>LinkedIn</h3>
+                    <a href="https://www.linkedin.com/in/mohammed-elseidi-7a3288154/" target="_blank">Connect</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon"><i class="fab fa-researchgate"></i></div>
+                    <h3>ResearchGate</h3>
+                    <a href="https://www.researchgate.net/profile/Mohammed-Elseidi-2" target="_blank">View Profile</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon"><i class="fas fa-globe"></i></div>
+                    <h3>Frontiers Loop</h3>
+                    <a href="https://loop.frontiersin.org/people/2758882/overview" target="_blank">View Profile</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-links">
-                <a href="index.html">Home</a>
-                <a href="experience.html">Experience</a>
-                <a href="publications.html">Publications</a>
-                <a href="education.html">Education</a>
-                <a href="contact.html">Contact</a>
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#publications">Publications</a>
+                <a href="#education">Education</a>
+                <a href="#contact">Contact</a>
             </div>
             <div class="social-links">
                 <a href="https://www.linkedin.com/in/mohammed-elseidi-7a3288154/" target="_blank" class="social-link"><i class="fab fa-linkedin-in"></i></a>
@@ -237,6 +1692,32 @@
         function toggleNav() {
             document.getElementById('navLinks').classList.toggle('active');
         }
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu
+                    document.getElementById('navLinks').classList.remove('active');
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(15, 23, 42, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(15, 23, 42, 0.95)';
+            }
+        });
     </script>
 </body>
 </html>
