@@ -15,19 +15,34 @@
         header {
             background: #333;
             color: #fff;
-            padding: 1rem 0;
+            padding: 1.5rem 0;
             text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            color: #fff;
+        }
+        header p {
+            margin: 0.5rem 0 0 0;
+            font-size: 0.95rem;
         }
         nav {
             background: #444;
             color: #fff;
             padding: 0.5rem;
             text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
         nav a {
             color: #fff;
-            margin: 0 1rem;
+            margin: 0 0.5rem;
             text-decoration: none;
+            font-size: 0.9rem;
+        }
+        nav a:hover {
+            text-decoration: underline;
         }
         .container {
             width: 80%;
@@ -39,9 +54,17 @@
         h1, h2, h3 {
             color: #333;
         }
+        h2 {
+            border-bottom: 2px solid #333;
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+        }
         a {
-            color: #333;
+            color: #0066cc;
             text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
         }
         ul {
             list-style: none;
@@ -50,83 +73,308 @@
         ul li {
             margin-bottom: 0.5rem;
         }
+        .highlight {
+            background-color: #ffeb3b;
+            padding: 0.1rem 0.3rem;
+            font-weight: bold;
+            font-size: 0.85rem;
+        }
+        .job-entry, .edu-entry {
+            margin-bottom: 1rem;
+            padding-left: 1rem;
+            border-left: 3px solid #333;
+        }
+        .job-title {
+            font-weight: bold;
+            color: #333;
+        }
+        .job-org {
+            font-style: italic;
+            color: #555;
+        }
+        .job-date {
+            color: #777;
+            font-size: 0.9rem;
+        }
+        .publication {
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            background: #f9f9f9;
+            border-radius: 4px;
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 0.5rem;
+        }
+        .skills-grid dt {
+            font-weight: bold;
+        }
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                padding: 1rem;
+            }
+            nav a {
+                display: block;
+                margin: 0.3rem 0;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
         <h1>Dr. Mohammed Elseidi</h1>
+        <p>(+971) 502526435 | <a href="mailto:drmohammed.elseidi@uaqu.ac.ae" style="color: #fff;">drmohammed.elseidi@uaqu.ac.ae</a></p>
+        <p>P.O.Box: 536, Umm Al-Quwain University, Umm Al Quwain, UAE</p>
     </header>
     <nav>
-        <a href="#about">About Me</a>
-        <a href="#contact">Contact Information</a>
-        <a href="#education">Education and Training</a>
-        <a href="#work">Work Experience</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="#experience">Experience</a>
+        <a href="#leadership">Leadership</a>
+        <a href="#editorial">Editorial</a>
+        <a href="#affiliations">Affiliations</a>
+        <a href="#committees">Committees</a>
+        <a href="#education">Education</a>
         <a href="#publications">Publications</a>
-        <a href="#memberships">Professional Memberships</a>
-        <a href="#conferences">Conferences</a>
+        <a href="#awards">Awards</a>
+        <a href="#media">Media</a>
+        <a href="#skills">Skills</a>
+        <a href="#memberships">Memberships</a>
     </nav>
     <div class="container">
         <section id="about">
             <h2>About Me</h2>
-            <p>Dr. Mohammed Elseidi is an Assistant Professor of Statistics at Umm Al-Quwain University in the UAE. His expertise encompasses delivering courses in statistics and mathematics, conducting applied statistical research, mentoring students, and enhancing the curriculum. His contributions to the scholarly statistical community are noteworthy.</p>
+            <ul>
+                <li>An Assistant Professor of Statistics with a Ph.D. from the University of Padova, Italy—ranked among the <strong>top 100 universities globally for Statistics</strong>. My research focuses on advancing statistical modeling and forecasting.</li>
+                <li>My work is consistently published in the <strong>top 10 (Q1) journals</strong> in my field (Scopus & Web of Science). This research has a significant impact, demonstrated by a <strong>Field-Weighted Citation Impact (FWCI) of 1.84</strong>, meaning my publications are cited 84% more than the world average.</li>
+                <li>I am a winner of the prestigious <strong>2024/2025 "Wellbeing Economy Award"</strong> and actively contribute to the scholarly community as a Review Editor and peer reviewer for numerous high-impact journals.</li>
+            </ul>
         </section>
+
         <section id="contact">
             <h2>Contact Information</h2>
             <ul>
                 <li><strong>Email:</strong> <a href="mailto:drmohammed.elseidi@uaqu.ac.ae">drmohammed.elseidi@uaqu.ac.ae</a></li>
                 <li><strong>Phone:</strong> (+971) 502526435</li>
                 <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/mohammed-elseidi-7a3288154/" target="_blank">linkedin.com/in/mohammed-elseidi-7a3288154</a></li>
+                <li><strong>Website:</strong> <a href="https://loop.frontiersin.org/people/2758882/overview" target="_blank">Frontiers Loop Profile</a></li>
                 <li><strong>ResearchGate:</strong> <a href="https://www.researchgate.net/profile/Mohammed-Elseidi-2" target="_blank">researchgate.net/profile/Mohammed-Elseidi-2</a></li>
-                <li><strong>Address:</strong> P.O.Box: 536, Umm Al-Quwain University, Umm Al Quwain, UAE, Umm Al-Quwain, United Arab Emirates (Work)</li>
+                <li><strong>Address:</strong> P.O.Box: 536, Umm Al-Quwain University, Umm Al Quwain, UAE</li>
             </ul>
         </section>
-        <section id="education">
-            <h2>Education and Training</h2>
-            <ul>
-                <li><strong>PhD in Statistics:</strong> University of Padova, Italy (2016 - 2020)</li>
-                <li><strong>Master's in Applied Statistics:</strong> Mansoura University, Egypt (2013 - 2015)</li>
-                <li><strong>Bachelor's in Commerce:</strong> Mansoura University, Egypt (2008 - 2012)</li>
-            </ul>
-        </section>
-        <section id="work">
+
+        <section id="experience">
             <h2>Work Experience</h2>
+            <div class="job-entry">
+                <div class="job-title">Assistant Professor of Statistics</div>
+                <div class="job-org">Umm Al Quwain University, Umm Al Quwain, UAE</div>
+                <div class="job-date">Feb 2024 - Present</div>
+            </div>
+            <div class="job-entry">
+                <div class="job-title">Visiting Assistant Professor</div>
+                <div class="job-org">Department of Statistical Sciences, University of Padova, Padova, Italy</div>
+                <div class="job-date">May 2022 - Nov 2022</div>
+            </div>
+            <div class="job-entry">
+                <div class="job-title">Assistant Professor of Statistics</div>
+                <div class="job-org">Faculty of Commerce, Mansoura University, Mansoura, Egypt</div>
+                <div class="job-date">Jul 2020 - Feb 2024</div>
+            </div>
+            <div class="job-entry">
+                <div class="job-title">University Teaching Assistant</div>
+                <div class="job-org">Faculty of Commerce, Mansoura University, Mansoura, Egypt</div>
+                <div class="job-date">Oct 2012 - Jul 2020</div>
+            </div>
+        </section>
+
+        <section id="leadership">
+            <h2>Administrative & Leadership Roles</h2>
+            <div class="job-entry">
+                <div class="job-title">Chair, Operational Plan Committee</div>
+                <div class="job-org">College of Arts and Sciences, Umm Al-Quwain University</div>
+                <div class="job-date">Fall 2024 - 2025</div>
+            </div>
+            <div class="job-entry">
+                <div class="job-title">Chair, Cybersecurity Hiring Committee</div>
+                <div class="job-org">Cybersecurity Program, Umm Al-Quwain University</div>
+                <div class="job-date">May 2025</div>
+            </div>
+            <div class="job-entry">
+                <div class="job-title">Supervisor, Technical Office (Digital Transformation Unit)</div>
+                <div class="job-org">Faculty of Commerce, Mansoura University</div>
+                <div class="job-date">Feb 2023 - Present</div>
+            </div>
+            <div class="job-entry">
+                <div class="job-title">Coordinator, International Publishing Program</div>
+                <div class="job-org">Faculty of Commerce, Mansoura University</div>
+                <div class="job-date">Nov 2022 - Present</div>
+            </div>
+            <div class="job-entry">
+                <div class="job-title">Representative, Egyptian Knowledge Bank</div>
+                <div class="job-org">Faculty of Commerce, Mansoura University</div>
+                <div class="job-date">Jun 2021 - Present</div>
+            </div>
+            <div class="job-entry">
+                <div class="job-title">Coordinator, Quality Assurance and Accreditation Unit</div>
+                <div class="job-org">Department of Applied Statistics, Mansoura University</div>
+                <div class="job-date">Dec 2015 - Sep 2016</div>
+            </div>
+        </section>
+
+        <section id="editorial">
+            <h2>Reviewer & Editorial Roles</h2>
+            <h3>Editorial Positions</h3>
+            <div class="job-entry">
+                <div class="job-title">Review Editor</div>
+                <div class="job-org">Meteorological Applications - Royal Meteorological Society (RMetS)</div>
+                <div class="job-date">Jun 2024 - Present</div>
+            </div>
+            <div class="job-entry">
+                <div class="job-title">Review Editor</div>
+                <div class="job-org">Frontiers in Climate (Climate Monitoring Section) - Frontiers</div>
+                <div class="job-date">Jun 2024 - Present</div>
+            </div>
+            <h3>Certified Peer Reviewer</h3>
             <ul>
-                <li><strong>Assistant Professor of Statistics and Mathematics:</strong> Umm Al-Quwain University, UAE (2024 - Present)</li>
-                <li><strong>Visiting Assistant Professor:</strong> Department of Statistical Sciences, University of Padova, Italy (2022)</li>
-                <li><strong>Assistant Professor of Statistics:</strong> Faculty of Commerce, Mansoura University, Egypt (2020 - 2024)</li>
-                <li><strong>PhD/Doctoral Researcher:</strong> Department of Statistical Sciences, University of Padova, Italy (2016 - 2020)</li>
-                <li><strong>University Teaching Assistant:</strong> Faculty of Commerce, Mansoura University, Egypt (2012 - 2020)</li>
+                <li><em>Stochastic Environmental Research and Risk Assessment</em> (5 manuscripts, 2024-2025)</li>
+                <li><em>Journal of Hydrometeorology</em> (AMS, 1 manuscript, 2024)</li>
+                <li><em>Scientific Reports</em> (1 manuscript, 2025)</li>
+                <li><em>Energy Systems</em> (1 manuscript, 2025)</li>
+                <li><em>Forecasting</em> (MDPI, 1 manuscript, 2025)</li>
+                <li><em>Frontiers Journals</em> (3 review publications)</li>
             </ul>
         </section>
+
+        <section id="affiliations">
+            <h2>Professional Affiliations & Expert Roles</h2>
+            <div class="job-entry">
+                <div class="job-title">Expert, Commission on Environmental, Economic and Social Policy (CEESP)</div>
+                <div class="job-org">International Union for Conservation of Nature (IUCN)</div>
+                <div class="job-date">Nov 2024 - Present</div>
+            </div>
+            <div class="job-entry">
+                <div class="job-title">Member, Abu Dhabi Environmental Research Network</div>
+                <div class="job-org">Environment Agency - Abu Dhabi (EAD)</div>
+                <div class="job-date">Apr 2024 - Present</div>
+            </div>
+        </section>
+
+        <section id="committees">
+            <h2>University Committee Memberships</h2>
+            <ul>
+                <li><strong>General Education Hiring Committee</strong> (May 2025): Contributed to faculty staffing decisions for university-wide general education courses.</li>
+                <li><strong>Library Book Donations Committee</strong> (May 2025): Reviewed and approved book donations to ensure alignment with university standards.</li>
+                <li><strong>Scientific Research Committee</strong> (Jan 2024 - Present): Support the development of research strategy and enhance faculty research output at the College of Arts and Sciences.</li>
+                <li><strong>Graduate Studies Committee</strong> (Jan 2024 - Present): Contribute to academic oversight and curriculum development for the Sociology Graduate Program.</li>
+            </ul>
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+            <div class="edu-entry">
+                <div class="job-title">Ph.D. in Statistics</div>
+                <div class="job-org">University of Padova, Padova, Italy</div>
+                <div class="job-date">Sep 2016 - Feb 2020</div>
+            </div>
+            <div class="edu-entry">
+                <div class="job-title">Master Degree in Applied Statistics</div>
+                <div class="job-org">Mansoura University, Mansoura, Egypt</div>
+                <div class="job-date">Sep 2013 - Sep 2015</div>
+            </div>
+            <div class="edu-entry">
+                <div class="job-title">Bachelor in Commerce, Major Applied Statistics</div>
+                <div class="job-org">Mansoura University, Mansoura, Egypt</div>
+                <div class="job-date">Sep 2008 - Jun 2012</div>
+                <div><em>Ranked 1st in the department.</em></div>
+            </div>
+        </section>
+
         <section id="publications">
-            <h2>Publications</h2>
+            <h2>Selected Publications</h2>
+            <p><em>My publication portfolio has a Field-Weighted Citation Impact (FWCI) of 1.84, signifying a citation rate 84% above the world average in my field.</em></p>
+
+            <div class="publication">
+                <strong>Elseidi, M.</strong> (2025). "From classical models to artificial intelligence models: Prospects for crime prediction in the era of big data." <em>International Journal of Data and Network Science</em>, 9(4), 803-812. <span class="highlight">Q1 in AI</span>
+            </div>
+
+            <div class="publication">
+                <strong>Elseidi, M.</strong> (2025). "STR-NBEATS: a novel hybrid framework integrating time series decomposition with deep learning for enhanced temperature forecasting." <em>Modeling Earth Systems and Environment</em>, 11(4), 255. <span class="highlight">Top 10, Q1 Stats, Scopus</span>
+            </div>
+
+            <div class="publication">
+                <strong>Elseidi, M.</strong> (2024). "MSTL-NNAR: a new hybrid model of machine learning and time series decomposition for wind speed forecasting." <em>Stochastic Environmental Research and Risk Assessment</em>, 38(7), 2613-2632. <span class="highlight">Top 10, Q1 Stats, WoS</span>
+            </div>
+
+            <div class="publication">
+                <strong>Elseidi, M.</strong> (2024). "A hybrid Facebook Prophet-ARIMA framework for forecasting high-frequency temperature data." <em>Modeling Earth Systems and Environment</em>, 10(2), 1855-1867. <span class="highlight">Top 10, Q1 Stats, Scopus</span>
+            </div>
+
+            <div class="publication">
+                <strong>Caporin, M., & Elseidi, M.</strong> (2023). "Quantile regression-based seasonal adjustment." <em>International Journal of Computational Economics and Econometrics</em>, 13(3), 270-304.
+            </div>
+
+            <div class="publication">
+                <strong>Elseidi, M.</strong> (2023). "Forecasting temperature data with complex seasonality using time series methods." <em>Modeling Earth Systems and Environment</em>, 9(2), 2553-2567. <span class="highlight">Top 10, Q1 Stats, Scopus</span>
+            </div>
+
+            <h3>Manuscripts Under Peer Review</h3>
             <ul>
-                <li><a href="https://link.springer.com/article/10.1007/s00477-024-02701-7" target="_blank">MSTL-NNAR: a new hybrid model of machine learning and time series decomposition for wind speed forecasting</a> - Stochastic Environmental Research and Risk Assessment (2024)</li>
-                <li><a href="https://link.springer.com/article/10.1007/s40808-023-01874-4" target="_blank">A Hybrid Facebook Prophet-ARIMA Framework for Forecasting High-Frequency Temperature Data</a> - Modeling Earth Systems and Environment (2023)</li>
-                <li><a href="https://link.springer.com/article/10.1007/s40808-022-01632-y" target="_blank">Forecasting temperature data with complex seasonality using time series methods</a> - Modeling Earth Systems and Environment (2023)</li>
-                <li><a href="https://www.inderscienceonline.com/doi/abs/10.1504/IJCEE.2023.132144" target="_blank">Quantile Regression based seasonal adjustment</a> - International Journal of Computational Economics and Econometrics (2023)</li>
+                <li><strong>Elseidi, M.</strong> "A Meta-Ensemble Learning Framework for Accurate Wind Speed Forecasting in Environmental Systems." Submitted to <em>Advances in Decision Sciences</em>.</li>
+                <li><strong>Elseidi, M.</strong> "High-Frequency Forecasting and Cultural Analytics of ChatGPT Adoption in the UAE." Submitted to <em>IEEE Transactions on Computational Social Systems</em>.</li>
+                <li><strong>Elseidi, M.</strong> "A High-Frequency Composite Happiness Index for the United Arab Emirates." Submitted to <em>SN Social Sciences</em>.</li>
             </ul>
         </section>
+
+        <section id="awards">
+            <h2>Honors and Awards</h2>
+            <div class="job-entry">
+                <div class="job-title">Second Place, "Wellbeing Economy Award" 2024/2025</div>
+                <div class="job-org">Organizers: Greenpeace MENA, Ajman University, and the UAE Universities Climate Network</div>
+            </div>
+            <div class="job-entry">
+                <div class="job-title">Google Scholarship Program - Google Data Analytics Program on Coursera</div>
+                <div class="job-org">UCCD Project</div>
+                <div class="job-date">Aug 2021</div>
+            </div>
+            <div class="job-entry">
+                <div class="job-title">Winner of the Doctoral Scholarship</div>
+                <div class="job-org">University of Padova</div>
+                <div class="job-date">Jun 2016</div>
+            </div>
+        </section>
+
+        <section id="media">
+            <h2>Media Coverage</h2>
+            <ul>
+                <li><strong>Emirates News Agency (WAM), May 18, 2025:</strong> Coverage for winning second place in the "Economy of Wellbeing" national competition, recognized by Greenpeace MENA for the project "Building and Forecasting a Hybrid Well-being Index for the UAE."</li>
+                <li><strong>Emirates News Agency (WAM), April 23, 2025:</strong> Featured for a scientific seminar on future forecasting using machine learning, where I presented the MSTL-NNAR model. <a href="https://www.wam.ae/ar/article/b2suyng" target="_blank">[Official Coverage]</a></li>
+            </ul>
+        </section>
+
+        <section id="skills">
+            <h2>Digital Skills</h2>
+            <dl class="skills-grid">
+                <dt>Programming Languages:</dt>
+                <dd>R, Python, MATLAB</dd>
+                <dt>Statistical Software:</dt>
+                <dd>SPSS, Statgraphics, JMP</dd>
+                <dt>Writing Tools:</dt>
+                <dd>Advanced LaTeX, Proficient Microsoft Office</dd>
+            </dl>
+        </section>
+
         <section id="memberships">
-            <h2>Professional Memberships</h2>
+            <h2>Networks and Memberships</h2>
             <ul>
                 <li>The International Institute of Forecasters (IIF)</li>
-                <li>Abu Dhabi Environmental Research Network</li>
+                <li>Expert in UAE Research Map</li>
                 <li>The Irish Statistical Association (ISA)</li>
                 <li>European Network for Business and Industrial Statistics</li>
                 <li>Member of Italian Econometric Society (SIDE)</li>
             </ul>
         </section>
-        <section id="conferences">
-            <h2>Conferences and Seminars</h2>
-            <ul>
-                <li>44th International Symposium On Forecasting, Dijon, France (2024)</li>
-                <li>Annual Irish Statistical Association conference (CASI 2021), Maynooth University (virtual event) (2021)</li>
-                <li>Data Science Conference on COVID-19 [DSCC-19] (2020)</li>
-                <li>PHASTAR’s Life Science Summit, a statistics and data science forum (2020)</li>
-            </ul>
-        </section>
     </div>
 </body>
 </html>
-
