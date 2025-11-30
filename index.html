@@ -427,6 +427,402 @@
             66% { transform: translate(-20px, 20px) scale(0.9); }
         }
 
+        /* Binary Data Stream */
+        .binary-stream {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            opacity: 0.08;
+        }
+
+        .binary-column {
+            position: absolute;
+            top: -100%;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            color: var(--accent);
+            writing-mode: vertical-rl;
+            animation: binaryFall 15s linear infinite;
+            text-shadow: 0 0 10px var(--accent);
+        }
+
+        .binary-column:nth-child(1) { left: 3%; animation-delay: 0s; animation-duration: 12s; }
+        .binary-column:nth-child(2) { left: 8%; animation-delay: 2s; animation-duration: 18s; }
+        .binary-column:nth-child(3) { left: 13%; animation-delay: 4s; animation-duration: 14s; }
+        .binary-column:nth-child(4) { left: 18%; animation-delay: 1s; animation-duration: 16s; }
+        .binary-column:nth-child(5) { left: 23%; animation-delay: 3s; animation-duration: 13s; }
+        .binary-column:nth-child(6) { left: 78%; animation-delay: 5s; animation-duration: 17s; }
+        .binary-column:nth-child(7) { left: 83%; animation-delay: 2.5s; animation-duration: 15s; }
+        .binary-column:nth-child(8) { left: 88%; animation-delay: 4.5s; animation-duration: 14s; }
+        .binary-column:nth-child(9) { left: 93%; animation-delay: 1.5s; animation-duration: 16s; }
+        .binary-column:nth-child(10) { left: 98%; animation-delay: 3.5s; animation-duration: 13s; }
+
+        @keyframes binaryFall {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(200vh); }
+        }
+
+        /* Formula Boxes */
+        .formula-boxes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .formula-box {
+            position: absolute;
+            background: rgba(13, 148, 136, 0.1);
+            border: 1px solid rgba(20, 184, 166, 0.3);
+            border-radius: 8px;
+            padding: 8px 12px;
+            font-family: 'Times New Roman', serif;
+            font-size: 0.9rem;
+            color: rgba(20, 184, 166, 0.6);
+            backdrop-filter: blur(5px);
+            animation: formulaFloat 20s ease-in-out infinite;
+            white-space: nowrap;
+        }
+
+        .formula-box:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
+        .formula-box:nth-child(2) { top: 30%; right: 8%; animation-delay: 4s; }
+        .formula-box:nth-child(3) { top: 60%; left: 3%; animation-delay: 8s; }
+        .formula-box:nth-child(4) { top: 75%; right: 5%; animation-delay: 12s; }
+        .formula-box:nth-child(5) { top: 45%; left: 8%; animation-delay: 6s; }
+        .formula-box:nth-child(6) { top: 20%; right: 3%; animation-delay: 10s; }
+
+        @keyframes formulaFloat {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); opacity: 0.4; }
+            25% { transform: translate(10px, -20px) rotate(2deg); opacity: 0.7; }
+            50% { transform: translate(-5px, -40px) rotate(-1deg); opacity: 0.5; }
+            75% { transform: translate(15px, -20px) rotate(1deg); opacity: 0.6; }
+        }
+
+        /* Scatter Plot Dots */
+        .scatter-plot {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .scatter-dot {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 50%;
+            opacity: 0;
+            animation: scatterAppear 8s ease-in-out infinite;
+        }
+
+        .scatter-dot:nth-child(1) { top: 20%; left: 25%; animation-delay: 0s; }
+        .scatter-dot:nth-child(2) { top: 35%; left: 28%; animation-delay: 0.3s; }
+        .scatter-dot:nth-child(3) { top: 25%; left: 32%; animation-delay: 0.6s; }
+        .scatter-dot:nth-child(4) { top: 40%; left: 35%; animation-delay: 0.9s; }
+        .scatter-dot:nth-child(5) { top: 30%; left: 38%; animation-delay: 1.2s; }
+        .scatter-dot:nth-child(6) { top: 45%; left: 42%; animation-delay: 1.5s; }
+        .scatter-dot:nth-child(7) { top: 35%; left: 45%; animation-delay: 1.8s; }
+        .scatter-dot:nth-child(8) { top: 50%; left: 48%; animation-delay: 2.1s; }
+        .scatter-dot:nth-child(9) { top: 40%; left: 52%; animation-delay: 2.4s; }
+        .scatter-dot:nth-child(10) { top: 55%; left: 55%; animation-delay: 2.7s; }
+        .scatter-dot:nth-child(11) { top: 45%; left: 58%; animation-delay: 3s; }
+        .scatter-dot:nth-child(12) { top: 60%; left: 62%; animation-delay: 3.3s; }
+
+        @keyframes scatterAppear {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            20% { opacity: 0.8; transform: scale(1.5); }
+            40%, 80% { opacity: 0.6; transform: scale(1); }
+        }
+
+        /* Regression Line */
+        .regression-line {
+            position: absolute;
+            top: 15%;
+            left: 20%;
+            width: 50%;
+            height: 50%;
+            opacity: 0.3;
+        }
+
+        .regression-line svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .reg-path {
+            fill: none;
+            stroke: var(--accent);
+            stroke-width: 2;
+            stroke-dasharray: 500;
+            stroke-dashoffset: 500;
+            animation: drawRegression 6s ease-in-out infinite;
+        }
+
+        .confidence-band {
+            fill: rgba(34, 197, 94, 0.1);
+            animation: bandPulse 6s ease-in-out infinite;
+        }
+
+        @keyframes drawRegression {
+            0% { stroke-dashoffset: 500; }
+            50% { stroke-dashoffset: 0; }
+            100% { stroke-dashoffset: -500; }
+        }
+
+        @keyframes bandPulse {
+            0%, 100% { opacity: 0.1; }
+            50% { opacity: 0.3; }
+        }
+
+        /* Time Series Forecast */
+        .forecast-area {
+            position: absolute;
+            bottom: 15%;
+            right: 5%;
+            width: 300px;
+            height: 120px;
+            opacity: 0.4;
+        }
+
+        .forecast-area svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .historical-line {
+            fill: none;
+            stroke: var(--primary-light);
+            stroke-width: 2;
+            stroke-dasharray: 300;
+            stroke-dashoffset: 300;
+            animation: drawForecast 8s ease-in-out infinite;
+        }
+
+        .forecast-line {
+            fill: none;
+            stroke: var(--secondary);
+            stroke-width: 2;
+            stroke-dasharray: 5, 5;
+            stroke-dashoffset: 200;
+            animation: drawForecast 8s ease-in-out infinite 2s;
+        }
+
+        .forecast-cone {
+            fill: rgba(14, 165, 233, 0.15);
+            animation: conePulse 8s ease-in-out infinite;
+        }
+
+        @keyframes drawForecast {
+            0% { stroke-dashoffset: 300; }
+            50% { stroke-dashoffset: 0; }
+            100% { stroke-dashoffset: -300; }
+        }
+
+        @keyframes conePulse {
+            0%, 100% { opacity: 0; }
+            30%, 70% { opacity: 0.2; }
+        }
+
+        /* Neural Network Layers */
+        .neural-network {
+            position: absolute;
+            top: 5%;
+            right: 15%;
+            width: 200px;
+            height: 200px;
+            opacity: 0.25;
+        }
+
+        .nn-layer {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .nn-layer-1 { left: 0; top: 20%; }
+        .nn-layer-2 { left: 40%; top: 10%; }
+        .nn-layer-3 { left: 80%; top: 25%; }
+
+        .nn-neuron {
+            width: 12px;
+            height: 12px;
+            background: var(--primary);
+            border-radius: 50%;
+            box-shadow: 0 0 15px var(--primary);
+            animation: neuronPulse 2s ease-in-out infinite;
+        }
+
+        .nn-neuron:nth-child(odd) { animation-delay: 0.5s; }
+
+        @keyframes neuronPulse {
+            0%, 100% { transform: scale(1); opacity: 0.6; }
+            50% { transform: scale(1.3); opacity: 1; }
+        }
+
+        .nn-connection {
+            position: absolute;
+            height: 1px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform-origin: left center;
+            animation: connectionFlow 3s ease-in-out infinite;
+        }
+
+        @keyframes connectionFlow {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 0.8; }
+        }
+
+        /* Histogram Bars */
+        .histogram {
+            position: absolute;
+            bottom: 20%;
+            left: 5%;
+            display: flex;
+            align-items: flex-end;
+            gap: 4px;
+            height: 80px;
+            opacity: 0.3;
+        }
+
+        .hist-bar {
+            width: 8px;
+            background: linear-gradient(to top, var(--primary), var(--primary-light));
+            border-radius: 2px 2px 0 0;
+            animation: histGrow 4s ease-in-out infinite;
+        }
+
+        .hist-bar:nth-child(1) { height: 20px; animation-delay: 0s; }
+        .hist-bar:nth-child(2) { height: 35px; animation-delay: 0.1s; }
+        .hist-bar:nth-child(3) { height: 55px; animation-delay: 0.2s; }
+        .hist-bar:nth-child(4) { height: 70px; animation-delay: 0.3s; }
+        .hist-bar:nth-child(5) { height: 80px; animation-delay: 0.4s; }
+        .hist-bar:nth-child(6) { height: 65px; animation-delay: 0.5s; }
+        .hist-bar:nth-child(7) { height: 45px; animation-delay: 0.6s; }
+        .hist-bar:nth-child(8) { height: 25px; animation-delay: 0.7s; }
+        .hist-bar:nth-child(9) { height: 15px; animation-delay: 0.8s; }
+
+        @keyframes histGrow {
+            0%, 100% { transform: scaleY(0.3); opacity: 0.3; }
+            50% { transform: scaleY(1); opacity: 0.6; }
+        }
+
+        /* Matrix Rain Effect */
+        .matrix-symbols {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            opacity: 0.06;
+        }
+
+        .matrix-col {
+            position: absolute;
+            top: -50%;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            color: var(--accent);
+            animation: matrixRain 10s linear infinite;
+            text-shadow: 0 0 8px var(--accent);
+        }
+
+        .matrix-col span {
+            display: block;
+            margin: 5px 0;
+        }
+
+        .matrix-col:nth-child(1) { left: 2%; animation-delay: 0s; }
+        .matrix-col:nth-child(2) { left: 6%; animation-delay: 1.5s; }
+        .matrix-col:nth-child(3) { left: 10%; animation-delay: 3s; }
+        .matrix-col:nth-child(4) { left: 92%; animation-delay: 0.5s; }
+        .matrix-col:nth-child(5) { left: 96%; animation-delay: 2s; }
+
+        @keyframes matrixRain {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(150vh); }
+        }
+
+        /* Probability Distribution Curve */
+        .prob-curve {
+            position: absolute;
+            top: 65%;
+            right: 10%;
+            width: 150px;
+            height: 80px;
+            opacity: 0.35;
+        }
+
+        .prob-curve svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .bell-curve {
+            fill: rgba(14, 165, 233, 0.2);
+            stroke: var(--secondary);
+            stroke-width: 2;
+            animation: bellPulse 5s ease-in-out infinite;
+        }
+
+        .mean-line {
+            stroke: var(--accent);
+            stroke-width: 1;
+            stroke-dasharray: 4, 4;
+            animation: meanPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes bellPulse {
+            0%, 100% { transform: scaleY(1); }
+            50% { transform: scaleY(1.1); }
+        }
+
+        @keyframes meanPulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        /* Correlation Matrix */
+        .corr-matrix {
+            position: absolute;
+            top: 40%;
+            left: 2%;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3px;
+            opacity: 0.25;
+        }
+
+        .corr-cell {
+            width: 12px;
+            height: 12px;
+            border-radius: 2px;
+            animation: corrPulse 3s ease-in-out infinite;
+        }
+
+        .corr-cell:nth-child(1) { background: var(--primary); animation-delay: 0s; }
+        .corr-cell:nth-child(2) { background: rgba(13, 148, 136, 0.7); animation-delay: 0.1s; }
+        .corr-cell:nth-child(3) { background: rgba(13, 148, 136, 0.4); animation-delay: 0.2s; }
+        .corr-cell:nth-child(4) { background: rgba(13, 148, 136, 0.2); animation-delay: 0.3s; }
+        .corr-cell:nth-child(5) { background: rgba(13, 148, 136, 0.7); animation-delay: 0.1s; }
+        .corr-cell:nth-child(6) { background: var(--secondary); animation-delay: 0.2s; }
+        .corr-cell:nth-child(7) { background: rgba(14, 165, 233, 0.6); animation-delay: 0.3s; }
+        .corr-cell:nth-child(8) { background: rgba(14, 165, 233, 0.3); animation-delay: 0.4s; }
+        .corr-cell:nth-child(9) { background: rgba(13, 148, 136, 0.4); animation-delay: 0.2s; }
+        .corr-cell:nth-child(10) { background: rgba(14, 165, 233, 0.6); animation-delay: 0.3s; }
+        .corr-cell:nth-child(11) { background: var(--accent); animation-delay: 0.4s; }
+        .corr-cell:nth-child(12) { background: rgba(34, 197, 94, 0.5); animation-delay: 0.5s; }
+        .corr-cell:nth-child(13) { background: rgba(13, 148, 136, 0.2); animation-delay: 0.3s; }
+        .corr-cell:nth-child(14) { background: rgba(14, 165, 233, 0.3); animation-delay: 0.4s; }
+        .corr-cell:nth-child(15) { background: rgba(34, 197, 94, 0.5); animation-delay: 0.5s; }
+        .corr-cell:nth-child(16) { background: var(--primary); animation-delay: 0.6s; }
+
+        @keyframes corrPulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 1; }
+        }
+
         .hero-container {
             max-width: 1400px;
             margin: 0 auto;
@@ -1426,6 +1822,135 @@
                 <div class="wave"></div>
                 <div class="wave"></div>
                 <div class="wave"></div>
+            </div>
+
+            <!-- Binary Data Stream -->
+            <div class="binary-stream">
+                <div class="binary-column">01001101 01001100 00110001 01010011</div>
+                <div class="binary-column">11010010 00101110 10110001 01100111</div>
+                <div class="binary-column">00110101 11001010 01011100 10011001</div>
+                <div class="binary-column">10101010 01010101 11110000 00001111</div>
+                <div class="binary-column">01110011 10001100 01100110 11001001</div>
+                <div class="binary-column">11100011 00011100 10101010 01010101</div>
+                <div class="binary-column">00001111 11110000 01100110 10011001</div>
+                <div class="binary-column">10110001 01001110 11010010 00101101</div>
+                <div class="binary-column">01011100 10100011 00110101 11001010</div>
+                <div class="binary-column">11001001 01110011 10001100 01100110</div>
+            </div>
+
+            <!-- Formula Boxes -->
+            <div class="formula-boxes">
+                <div class="formula-box">ŷ = β₀ + β₁x + ε</div>
+                <div class="formula-box">ARIMA(p,d,q)</div>
+                <div class="formula-box">σ² = Σ(xᵢ - μ)²/n</div>
+                <div class="formula-box">R² = 1 - SS_res/SS_tot</div>
+                <div class="formula-box">P(A|B) = P(B|A)P(A)/P(B)</div>
+                <div class="formula-box">MSTL + NNAR</div>
+            </div>
+
+            <!-- Scatter Plot -->
+            <div class="scatter-plot">
+                <div class="scatter-dot"></div>
+                <div class="scatter-dot"></div>
+                <div class="scatter-dot"></div>
+                <div class="scatter-dot"></div>
+                <div class="scatter-dot"></div>
+                <div class="scatter-dot"></div>
+                <div class="scatter-dot"></div>
+                <div class="scatter-dot"></div>
+                <div class="scatter-dot"></div>
+                <div class="scatter-dot"></div>
+                <div class="scatter-dot"></div>
+                <div class="scatter-dot"></div>
+            </div>
+
+            <!-- Regression Line with Confidence Band -->
+            <div class="regression-line">
+                <svg viewBox="0 0 400 300" preserveAspectRatio="none">
+                    <path class="confidence-band" d="M0,250 Q100,200 200,150 T400,50 L400,100 Q300,150 200,200 T0,280 Z"/>
+                    <path class="reg-path" d="M0,260 Q100,210 200,160 T400,60"/>
+                </svg>
+            </div>
+
+            <!-- Time Series Forecast -->
+            <div class="forecast-area">
+                <svg viewBox="0 0 300 120" preserveAspectRatio="none">
+                    <path class="forecast-cone" d="M180,60 L300,20 L300,100 Z"/>
+                    <path class="historical-line" d="M0,80 Q30,60 60,70 T120,50 T180,60"/>
+                    <path class="forecast-line" d="M180,60 Q220,45 260,50 T300,40"/>
+                </svg>
+            </div>
+
+            <!-- Neural Network -->
+            <div class="neural-network">
+                <div class="nn-layer nn-layer-1">
+                    <div class="nn-neuron"></div>
+                    <div class="nn-neuron"></div>
+                    <div class="nn-neuron"></div>
+                    <div class="nn-neuron"></div>
+                </div>
+                <div class="nn-layer nn-layer-2">
+                    <div class="nn-neuron"></div>
+                    <div class="nn-neuron"></div>
+                    <div class="nn-neuron"></div>
+                    <div class="nn-neuron"></div>
+                    <div class="nn-neuron"></div>
+                    <div class="nn-neuron"></div>
+                </div>
+                <div class="nn-layer nn-layer-3">
+                    <div class="nn-neuron"></div>
+                    <div class="nn-neuron"></div>
+                </div>
+            </div>
+
+            <!-- Histogram -->
+            <div class="histogram">
+                <div class="hist-bar"></div>
+                <div class="hist-bar"></div>
+                <div class="hist-bar"></div>
+                <div class="hist-bar"></div>
+                <div class="hist-bar"></div>
+                <div class="hist-bar"></div>
+                <div class="hist-bar"></div>
+                <div class="hist-bar"></div>
+                <div class="hist-bar"></div>
+            </div>
+
+            <!-- Matrix Symbols -->
+            <div class="matrix-symbols">
+                <div class="matrix-col"><span>∇</span><span>∂</span><span>∫</span><span>∑</span><span>∏</span><span>√</span><span>∞</span></div>
+                <div class="matrix-col"><span>α</span><span>β</span><span>γ</span><span>δ</span><span>ε</span><span>θ</span><span>λ</span></div>
+                <div class="matrix-col"><span>μ</span><span>σ</span><span>τ</span><span>φ</span><span>ψ</span><span>ω</span><span>Ω</span></div>
+                <div class="matrix-col"><span>⊕</span><span>⊗</span><span>⊂</span><span>⊃</span><span>∈</span><span>∉</span><span>≈</span></div>
+                <div class="matrix-col"><span>≤</span><span>≥</span><span>≠</span><span>±</span><span>×</span><span>÷</span><span>∝</span></div>
+            </div>
+
+            <!-- Probability Curve -->
+            <div class="prob-curve">
+                <svg viewBox="0 0 150 80" preserveAspectRatio="none">
+                    <path class="bell-curve" d="M0,80 Q25,78 40,60 Q55,30 75,10 Q95,30 110,60 Q125,78 150,80 L150,80 L0,80 Z"/>
+                    <line class="mean-line" x1="75" y1="0" x2="75" y2="80"/>
+                </svg>
+            </div>
+
+            <!-- Correlation Matrix -->
+            <div class="corr-matrix">
+                <div class="corr-cell"></div>
+                <div class="corr-cell"></div>
+                <div class="corr-cell"></div>
+                <div class="corr-cell"></div>
+                <div class="corr-cell"></div>
+                <div class="corr-cell"></div>
+                <div class="corr-cell"></div>
+                <div class="corr-cell"></div>
+                <div class="corr-cell"></div>
+                <div class="corr-cell"></div>
+                <div class="corr-cell"></div>
+                <div class="corr-cell"></div>
+                <div class="corr-cell"></div>
+                <div class="corr-cell"></div>
+                <div class="corr-cell"></div>
+                <div class="corr-cell"></div>
             </div>
         </div>
 
