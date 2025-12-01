@@ -380,55 +380,62 @@
             30%, 70% { opacity: 0.2; }
         }
 
-        /* Neural Network Layers */
-        .neural-network {
+        /* Deep Learning Methods Network */
+        .dl-network {
             position: absolute;
-            top: 3%;
-            right: 12%;
-            width: 320px;
-            height: 320px;
-            opacity: 0.8;
+            top: 5%;
+            right: 5%;
+            width: 350px;
+            height: 300px;
+            opacity: 1;
         }
 
-        .nn-layer {
+        .dl-node {
             position: absolute;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            align-items: center;
+            padding: 10px 18px;
+            background: linear-gradient(135deg, rgba(13, 148, 136, 0.9), rgba(14, 165, 233, 0.9));
+            border: 2px solid #4ade80;
+            border-radius: 25px;
+            color: #fff;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-shadow: 0 0 10px rgba(255,255,255,0.5);
+            box-shadow: 0 0 30px rgba(74, 222, 128, 0.6), 0 0 60px rgba(14, 165, 233, 0.4), inset 0 0 20px rgba(255,255,255,0.1);
+            animation: dlNodePulse 2s ease-in-out infinite;
+            z-index: 10;
         }
 
-        .nn-layer-1 { left: 0; top: 20%; }
-        .nn-layer-2 { left: 40%; top: 10%; }
-        .nn-layer-3 { left: 80%; top: 25%; }
+        .dl-node-1 { top: 10%; left: 0%; animation-delay: 0s; background: linear-gradient(135deg, #ec4899, #f472b6); border-color: #f472b6; }
+        .dl-node-2 { top: 40%; left: 5%; animation-delay: 0.3s; background: linear-gradient(135deg, #8b5cf6, #a78bfa); border-color: #a78bfa; }
+        .dl-node-3 { top: 70%; left: 0%; animation-delay: 0.6s; background: linear-gradient(135deg, #06b6d4, #22d3ee); border-color: #22d3ee; }
+        .dl-node-4 { top: 5%; right: 5%; animation-delay: 0.9s; background: linear-gradient(135deg, #f59e0b, #fbbf24); border-color: #fbbf24; }
+        .dl-node-5 { top: 35%; right: 0%; animation-delay: 1.2s; background: linear-gradient(135deg, #22c55e, #4ade80); border-color: #4ade80; }
+        .dl-node-6 { top: 65%; right: 5%; animation-delay: 1.5s; background: linear-gradient(135deg, #ef4444, #f87171); border-color: #f87171; }
 
-        .nn-neuron {
-            width: 18px;
-            height: 18px;
-            background: linear-gradient(135deg, #22c55e, #0ea5e9);
-            border-radius: 50%;
-            box-shadow: 0 0 25px #22c55e, 0 0 50px #0ea5e9, 0 0 75px rgba(34, 197, 94, 0.5);
-            animation: neuronPulse 1.5s ease-in-out infinite;
+        @keyframes dlNodePulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 30px currentColor, 0 0 60px rgba(14, 165, 233, 0.4); }
+            50% { transform: scale(1.08); box-shadow: 0 0 50px currentColor, 0 0 100px rgba(14, 165, 233, 0.6), 0 0 150px rgba(74, 222, 128, 0.3); }
         }
 
-        .nn-neuron:nth-child(odd) { animation-delay: 0.5s; background: linear-gradient(135deg, #0ea5e9, #f472b6); }
-
-        @keyframes neuronPulse {
-            0%, 100% { transform: scale(1); opacity: 0.8; box-shadow: 0 0 25px #22c55e, 0 0 50px #0ea5e9; }
-            50% { transform: scale(1.5); opacity: 1; box-shadow: 0 0 40px #22c55e, 0 0 80px #0ea5e9, 0 0 100px rgba(244, 114, 182, 0.5); }
-        }
-
-        .nn-connection {
+        .dl-connector {
             position: absolute;
-            height: 1px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            transform-origin: left center;
-            animation: connectionFlow 3s ease-in-out infinite;
+            height: 2px;
+            background: linear-gradient(90deg, #4ade80, #0ea5e9, #f472b6);
+            border-radius: 2px;
+            animation: connectorGlow 2s ease-in-out infinite;
+            z-index: 5;
         }
 
-        @keyframes connectionFlow {
-            0%, 100% { opacity: 0.2; }
-            50% { opacity: 0.8; }
+        .dl-conn-1 { top: 20%; left: 22%; width: 120px; transform: rotate(15deg); animation-delay: 0s; }
+        .dl-conn-2 { top: 45%; left: 25%; width: 100px; transform: rotate(-5deg); animation-delay: 0.4s; }
+        .dl-conn-3 { top: 70%; left: 22%; width: 130px; transform: rotate(-20deg); animation-delay: 0.8s; }
+        .dl-conn-4 { top: 25%; left: 45%; width: 80px; transform: rotate(30deg); animation-delay: 1.2s; }
+        .dl-conn-5 { top: 55%; left: 40%; width: 90px; transform: rotate(-15deg); animation-delay: 1.6s; }
+
+        @keyframes connectorGlow {
+            0%, 100% { opacity: 0.4; box-shadow: 0 0 10px #4ade80; }
+            50% { opacity: 1; box-shadow: 0 0 20px #4ade80, 0 0 40px #0ea5e9, 0 0 60px #f472b6; }
         }
 
         /* Histogram Bars */
@@ -1907,6 +1914,85 @@
             .media-card {
                 flex-direction: column;
             }
+
+            /* Mobile Animation Adjustments */
+            .dl-network {
+                width: 100%;
+                height: 200px;
+                top: 2%;
+                right: 0;
+                left: 0;
+            }
+
+            .dl-node {
+                padding: 6px 12px;
+                font-size: 0.7rem;
+            }
+
+            .dl-node-1 { top: 5%; left: 5%; }
+            .dl-node-2 { top: 35%; left: 2%; }
+            .dl-node-3 { top: 65%; left: 5%; }
+            .dl-node-4 { top: 5%; right: 5%; left: auto; }
+            .dl-node-5 { top: 35%; right: 2%; left: auto; }
+            .dl-node-6 { top: 65%; right: 5%; left: auto; }
+
+            .dl-connector {
+                display: none;
+            }
+
+            .formula-box {
+                padding: 8px 12px;
+                font-size: 0.9rem;
+            }
+
+            .formula-boxes {
+                display: none;
+            }
+
+            .histogram {
+                height: 80px;
+                bottom: 10%;
+                left: 2%;
+            }
+
+            .hist-bar {
+                width: 8px;
+            }
+
+            .prob-curve {
+                width: 120px;
+                height: 70px;
+                bottom: 5%;
+                right: 2%;
+                top: auto;
+            }
+
+            .seasonal-wave {
+                height: 100px;
+                bottom: 20%;
+            }
+
+            .forecast-fan,
+            .confidence-bands,
+            .ma-bands,
+            .trend-arrow {
+                display: none;
+            }
+
+            .corr-matrix {
+                top: 45%;
+                left: 3%;
+            }
+
+            .corr-cell {
+                width: 12px;
+                height: 12px;
+            }
+
+            .data-trail .trail-dot {
+                width: 6px;
+                height: 6px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -2091,14 +2177,14 @@
                 <div class="binary-column">11001001 01110011 10001100 01100110</div>
             </div>
 
-            <!-- Formula Boxes -->
+            <!-- Formula Boxes - Advanced Statistical Equations -->
             <div class="formula-boxes">
-                <div class="formula-box">ŷ = β₀ + β₁x + ε</div>
-                <div class="formula-box">ARIMA(p,d,q)</div>
-                <div class="formula-box">σ² = Σ(xᵢ - μ)²/n</div>
-                <div class="formula-box">R² = 1 - SS_res/SS_tot</div>
-                <div class="formula-box">P(A|B) = P(B|A)P(A)/P(B)</div>
-                <div class="formula-box">MSTL + NNAR</div>
+                <div class="formula-box">σₜ² = ω + αε²ₜ₋₁ + βσ²ₜ₋₁</div>
+                <div class="formula-box">STR-NBEATS</div>
+                <div class="formula-box">GARCH(p,q)</div>
+                <div class="formula-box">yₜ = Tₜ + Sₜ + Rₜ</div>
+                <div class="formula-box">∇ᵈyₜ = φ(B)θ(B)εₜ</div>
+                <div class="formula-box">LSTM · NNAR</div>
             </div>
 
             <!-- Scatter Plot -->
@@ -2134,26 +2220,19 @@
                 </svg>
             </div>
 
-            <!-- Neural Network -->
-            <div class="neural-network">
-                <div class="nn-layer nn-layer-1">
-                    <div class="nn-neuron"></div>
-                    <div class="nn-neuron"></div>
-                    <div class="nn-neuron"></div>
-                    <div class="nn-neuron"></div>
-                </div>
-                <div class="nn-layer nn-layer-2">
-                    <div class="nn-neuron"></div>
-                    <div class="nn-neuron"></div>
-                    <div class="nn-neuron"></div>
-                    <div class="nn-neuron"></div>
-                    <div class="nn-neuron"></div>
-                    <div class="nn-neuron"></div>
-                </div>
-                <div class="nn-layer nn-layer-3">
-                    <div class="nn-neuron"></div>
-                    <div class="nn-neuron"></div>
-                </div>
+            <!-- Deep Learning Methods Network -->
+            <div class="dl-network">
+                <div class="dl-node dl-node-1">LSTM</div>
+                <div class="dl-node dl-node-2">NBEATS</div>
+                <div class="dl-node dl-node-3">GRU</div>
+                <div class="dl-node dl-node-4">CNN</div>
+                <div class="dl-node dl-node-5">Transformer</div>
+                <div class="dl-node dl-node-6">NNAR</div>
+                <div class="dl-connector dl-conn-1"></div>
+                <div class="dl-connector dl-conn-2"></div>
+                <div class="dl-connector dl-conn-3"></div>
+                <div class="dl-connector dl-conn-4"></div>
+                <div class="dl-connector dl-conn-5"></div>
             </div>
 
             <!-- Histogram -->
