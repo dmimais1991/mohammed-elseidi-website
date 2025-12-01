@@ -240,12 +240,13 @@
             box-shadow: 0 0 40px rgba(74, 222, 128, 0.4), inset 0 0 25px rgba(14, 165, 233, 0.2);
         }
 
-        .formula-box:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
-        .formula-box:nth-child(2) { top: 30%; right: 8%; animation-delay: 4s; }
-        .formula-box:nth-child(3) { top: 60%; left: 3%; animation-delay: 8s; }
-        .formula-box:nth-child(4) { top: 75%; right: 5%; animation-delay: 12s; }
-        .formula-box:nth-child(5) { top: 45%; left: 8%; animation-delay: 6s; }
-        .formula-box:nth-child(6) { top: 20%; right: 3%; animation-delay: 10s; }
+        /* Position formula boxes away from name and photo */
+        .formula-box:nth-child(1) { top: 45%; left: 2%; animation-delay: 0s; }
+        .formula-box:nth-child(2) { top: 82%; right: 25%; animation-delay: 4s; }
+        .formula-box:nth-child(3) { top: 70%; left: 2%; animation-delay: 8s; }
+        .formula-box:nth-child(4) { top: 88%; left: 5%; animation-delay: 12s; }
+        .formula-box:nth-child(5) { top: 58%; left: 3%; animation-delay: 6s; }
+        .formula-box:nth-child(6) { top: 85%; right: 5%; animation-delay: 10s; }
 
         @keyframes formulaFloat {
             0%, 100% { transform: translate(0, 0) rotate(0deg); opacity: 0.7; }
@@ -473,39 +474,49 @@
             50% { transform: scaleY(1); opacity: 0.6; }
         }
 
-        /* Matrix Rain Effect */
+        /* Matrix Rain Effect - Enhanced Numbers Rain */
         .matrix-symbols {
             position: absolute;
             width: 100%;
             height: 100%;
             overflow: hidden;
-            opacity: 0.2;
+            opacity: 0.6;
         }
 
         .matrix-col {
             position: absolute;
-            top: -50%;
+            top: -80%;
             font-family: 'Courier New', monospace;
-            font-size: 12px;
+            font-size: 16px;
+            font-weight: bold;
             color: var(--accent);
-            animation: matrixRain 10s linear infinite;
-            text-shadow: 0 0 8px var(--accent);
+            animation: matrixRain 12s linear infinite;
+            text-shadow: 0 0 15px var(--accent), 0 0 30px rgba(14, 165, 233, 0.5);
         }
 
         .matrix-col span {
             display: block;
-            margin: 5px 0;
+            margin: 8px 0;
         }
 
-        .matrix-col:nth-child(1) { left: 2%; animation-delay: 0s; }
-        .matrix-col:nth-child(2) { left: 6%; animation-delay: 1.5s; }
-        .matrix-col:nth-child(3) { left: 10%; animation-delay: 3s; }
-        .matrix-col:nth-child(4) { left: 92%; animation-delay: 0.5s; }
-        .matrix-col:nth-child(5) { left: 96%; animation-delay: 2s; }
+        /* Left side columns */
+        .matrix-col:nth-child(1) { left: 1%; animation-delay: 0s; color: #4ade80; }
+        .matrix-col:nth-child(2) { left: 4%; animation-delay: 2s; color: #22d3ee; }
+        .matrix-col:nth-child(3) { left: 7%; animation-delay: 4s; color: #a78bfa; }
+        .matrix-col:nth-child(4) { left: 10%; animation-delay: 1s; color: #f472b6; }
+        .matrix-col:nth-child(5) { left: 13%; animation-delay: 3s; color: #fbbf24; }
+        /* Right side columns */
+        .matrix-col:nth-child(6) { left: 87%; animation-delay: 0.5s; color: #4ade80; }
+        .matrix-col:nth-child(7) { left: 90%; animation-delay: 2.5s; color: #22d3ee; }
+        .matrix-col:nth-child(8) { left: 93%; animation-delay: 1.5s; color: #a78bfa; }
+        .matrix-col:nth-child(9) { left: 96%; animation-delay: 3.5s; color: #f472b6; }
+        .matrix-col:nth-child(10) { left: 99%; animation-delay: 0.8s; color: #fbbf24; }
 
         @keyframes matrixRain {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(150vh); }
+            0% { transform: translateY(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(180vh); opacity: 0; }
         }
 
         /* Probability Distribution Curve */
@@ -2237,20 +2248,7 @@
                 </svg>
             </div>
 
-            <!-- Forecasting Methods Network (Balance: DL + Statistical) -->
-            <div class="dl-network">
-                <div class="dl-node dl-node-1">LSTM</div>
-                <div class="dl-node dl-node-2">NBEATS</div>
-                <div class="dl-node dl-node-3">GRU</div>
-                <div class="dl-node dl-node-4">EGARCH</div>
-                <div class="dl-node dl-node-5">Prophet</div>
-                <div class="dl-node dl-node-6">NNAR</div>
-                <div class="dl-connector dl-conn-1"></div>
-                <div class="dl-connector dl-conn-2"></div>
-                <div class="dl-connector dl-conn-3"></div>
-                <div class="dl-connector dl-conn-4"></div>
-                <div class="dl-connector dl-conn-5"></div>
-            </div>
+            <!-- Methods removed for cleaner professional look -->
 
             <!-- Histogram -->
             <div class="histogram">
@@ -2265,13 +2263,20 @@
                 <div class="hist-bar"></div>
             </div>
 
-            <!-- Matrix Symbols -->
+            <!-- Matrix Numbers Rain Effect -->
             <div class="matrix-symbols">
-                <div class="matrix-col"><span>∇</span><span>∂</span><span>∫</span><span>∑</span><span>∏</span><span>√</span><span>∞</span></div>
-                <div class="matrix-col"><span>α</span><span>β</span><span>γ</span><span>δ</span><span>ε</span><span>θ</span><span>λ</span></div>
-                <div class="matrix-col"><span>μ</span><span>σ</span><span>τ</span><span>φ</span><span>ψ</span><span>ω</span><span>Ω</span></div>
-                <div class="matrix-col"><span>⊕</span><span>⊗</span><span>⊂</span><span>⊃</span><span>∈</span><span>∉</span><span>≈</span></div>
-                <div class="matrix-col"><span>≤</span><span>≥</span><span>≠</span><span>±</span><span>×</span><span>÷</span><span>∝</span></div>
+                <!-- Left side rain columns -->
+                <div class="matrix-col"><span>0.95</span><span>1.84</span><span>0.05</span><span>2.58</span><span>0.01</span><span>1.96</span><span>0.10</span><span>3.14</span></div>
+                <div class="matrix-col"><span>σ²</span><span>μ</span><span>β₁</span><span>R²</span><span>p</span><span>α</span><span>λ</span><span>θ</span></div>
+                <div class="matrix-col"><span>0.84</span><span>0.99</span><span>0.67</span><span>0.42</span><span>0.91</span><span>0.23</span><span>0.78</span><span>0.55</span></div>
+                <div class="matrix-col"><span>∑</span><span>∏</span><span>∫</span><span>∂</span><span>∇</span><span>√</span><span>∞</span><span>≈</span></div>
+                <div class="matrix-col"><span>1.65</span><span>2.33</span><span>0.48</span><span>3.84</span><span>0.95</span><span>1.28</span><span>0.77</span><span>2.71</span></div>
+                <!-- Right side rain columns -->
+                <div class="matrix-col"><span>0.05</span><span>0.95</span><span>1.96</span><span>0.01</span><span>2.58</span><span>0.10</span><span>1.65</span><span>0.90</span></div>
+                <div class="matrix-col"><span>φ</span><span>ψ</span><span>ω</span><span>Ω</span><span>ε</span><span>δ</span><span>γ</span><span>τ</span></div>
+                <div class="matrix-col"><span>0.33</span><span>0.87</span><span>0.56</span><span>0.12</span><span>0.94</span><span>0.68</span><span>0.41</span><span>0.79</span></div>
+                <div class="matrix-col"><span>≤</span><span>≥</span><span>≠</span><span>±</span><span>×</span><span>÷</span><span>∝</span><span>∈</span></div>
+                <div class="matrix-col"><span>2.17</span><span>0.89</span><span>1.34</span><span>0.62</span><span>3.09</span><span>0.45</span><span>1.78</span><span>0.96</span></div>
             </div>
 
             <!-- Probability Curve -->
@@ -2302,13 +2307,23 @@
                 <div class="corr-cell"></div>
             </div>
 
-            <!-- Seasonal Wave Pattern -->
+            <!-- Seasonal Wave Pattern - Enhanced with more waves -->
             <div class="seasonal-wave">
                 <svg viewBox="0 0 2400 200" preserveAspectRatio="none">
                     <path class="season-path season-spring" d="M0,100 Q150,50 300,100 T600,100 T900,100 T1200,100 T1500,100 T1800,100 T2100,100 T2400,100"/>
                     <path class="season-path season-summer" d="M0,120 Q150,70 300,120 T600,120 T900,120 T1200,120 T1500,120 T1800,120 T2100,120 T2400,120"/>
                     <path class="season-path season-autumn" d="M0,140 Q150,90 300,140 T600,140 T900,140 T1200,140 T1500,140 T1800,140 T2100,140 T2400,140"/>
                     <path class="season-path season-winter" d="M0,160 Q150,110 300,160 T600,160 T900,160 T1200,160 T1500,160 T1800,160 T2100,160 T2400,160"/>
+                    <path class="season-path season-spring" d="M0,80 Q100,40 200,80 T400,80 T600,80 T800,80 T1000,80 T1200,80 T1400,80 T1600,80 T1800,80 T2000,80 T2200,80 T2400,80" style="opacity:0.5"/>
+                    <path class="season-path season-summer" d="M0,180 Q200,130 400,180 T800,180 T1200,180 T1600,180 T2000,180 T2400,180" style="opacity:0.5"/>
+                </svg>
+            </div>
+
+            <!-- Additional Wave Layer at Top -->
+            <div class="seasonal-wave" style="bottom: 70%; height: 150px; opacity: 0.5;">
+                <svg viewBox="0 0 2400 200" preserveAspectRatio="none">
+                    <path class="season-path season-spring" d="M0,100 Q200,40 400,100 T800,100 T1200,100 T1600,100 T2000,100 T2400,100"/>
+                    <path class="season-path season-winter" d="M0,150 Q250,90 500,150 T1000,150 T1500,150 T2000,150 T2400,150"/>
                 </svg>
             </div>
 
@@ -2388,11 +2403,7 @@
                     </div>
                     <div class="stat-card">
                         <div class="stat-number">5</div>
-                        <div class="stat-label">Single Author Q1 Pubs</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">Q1</div>
-                        <div class="stat-label">Top 10 Scopus & WoS</div>
+                        <div class="stat-label">Publications in Top 10 Scopus & WoS<br><small style="font-size:0.75rem; opacity:0.9;">in Statistics & Probability</small></div>
                     </div>
                 </div>
 
