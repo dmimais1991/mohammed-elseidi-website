@@ -383,10 +383,10 @@
         /* Deep Learning Methods Network */
         .dl-network {
             position: absolute;
-            top: 5%;
-            right: 5%;
-            width: 350px;
-            height: 300px;
+            bottom: 8%;
+            left: 3%;
+            width: 400px;
+            height: 280px;
             opacity: 1;
         }
 
@@ -406,12 +406,12 @@
             z-index: 10;
         }
 
-        .dl-node-1 { top: 10%; left: 0%; animation-delay: 0s; background: linear-gradient(135deg, #ec4899, #f472b6); border-color: #f472b6; }
-        .dl-node-2 { top: 40%; left: 5%; animation-delay: 0.3s; background: linear-gradient(135deg, #8b5cf6, #a78bfa); border-color: #a78bfa; }
-        .dl-node-3 { top: 70%; left: 0%; animation-delay: 0.6s; background: linear-gradient(135deg, #06b6d4, #22d3ee); border-color: #22d3ee; }
-        .dl-node-4 { top: 5%; right: 5%; animation-delay: 0.9s; background: linear-gradient(135deg, #f59e0b, #fbbf24); border-color: #fbbf24; }
-        .dl-node-5 { top: 35%; right: 0%; animation-delay: 1.2s; background: linear-gradient(135deg, #22c55e, #4ade80); border-color: #4ade80; }
-        .dl-node-6 { top: 65%; right: 5%; animation-delay: 1.5s; background: linear-gradient(135deg, #ef4444, #f87171); border-color: #f87171; }
+        .dl-node-1 { top: 5%; left: 0%; animation-delay: 0s; background: linear-gradient(135deg, #ec4899, #f472b6); border-color: #f472b6; }
+        .dl-node-2 { top: 35%; left: 0%; animation-delay: 0.3s; background: linear-gradient(135deg, #8b5cf6, #a78bfa); border-color: #a78bfa; }
+        .dl-node-3 { top: 65%; left: 0%; animation-delay: 0.6s; background: linear-gradient(135deg, #06b6d4, #22d3ee); border-color: #22d3ee; }
+        .dl-node-4 { top: 5%; left: 35%; animation-delay: 0.9s; background: linear-gradient(135deg, #f59e0b, #fbbf24); border-color: #fbbf24; }
+        .dl-node-5 { top: 35%; left: 40%; animation-delay: 1.2s; background: linear-gradient(135deg, #22c55e, #4ade80); border-color: #4ade80; }
+        .dl-node-6 { top: 65%; left: 35%; animation-delay: 1.5s; background: linear-gradient(135deg, #ef4444, #f87171); border-color: #f87171; }
 
         @keyframes dlNodePulse {
             0%, 100% { transform: scale(1); box-shadow: 0 0 30px currentColor, 0 0 60px rgba(14, 165, 233, 0.4); }
@@ -1918,41 +1918,54 @@
             /* Mobile Animation Adjustments */
             .dl-network {
                 width: 100%;
-                height: 200px;
-                top: 2%;
+                height: auto;
+                top: auto;
+                bottom: 2%;
                 right: 0;
                 left: 0;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 8px;
+                padding: 0 10px;
             }
 
             .dl-node {
-                padding: 6px 12px;
-                font-size: 0.7rem;
+                position: relative;
+                padding: 5px 10px;
+                font-size: 0.65rem;
+                top: auto !important;
+                left: auto !important;
+                right: auto !important;
             }
 
-            .dl-node-1 { top: 5%; left: 5%; }
-            .dl-node-2 { top: 35%; left: 2%; }
-            .dl-node-3 { top: 65%; left: 5%; }
-            .dl-node-4 { top: 5%; right: 5%; left: auto; }
-            .dl-node-5 { top: 35%; right: 2%; left: auto; }
-            .dl-node-6 { top: 65%; right: 5%; left: auto; }
+            .dl-node-1, .dl-node-2, .dl-node-3,
+            .dl-node-4, .dl-node-5, .dl-node-6 {
+                position: relative;
+            }
 
             .dl-connector {
                 display: none;
             }
 
             .formula-box {
-                padding: 8px 12px;
-                font-size: 0.9rem;
+                padding: 6px 10px;
+                font-size: 0.75rem;
             }
 
             .formula-boxes {
-                display: none;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 6px;
+                top: 65%;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 90%;
+                justify-content: center;
             }
 
             .histogram {
-                height: 80px;
-                bottom: 10%;
-                left: 2%;
+                display: none;
             }
 
             .hist-bar {
@@ -1960,16 +1973,13 @@
             }
 
             .prob-curve {
-                width: 120px;
-                height: 70px;
-                bottom: 5%;
-                right: 2%;
-                top: auto;
+                display: none;
             }
 
             .seasonal-wave {
-                height: 100px;
-                bottom: 20%;
+                height: 60px;
+                bottom: 12%;
+                opacity: 0.7;
             }
 
             .forecast-fan,
@@ -1980,8 +1990,7 @@
             }
 
             .corr-matrix {
-                top: 45%;
-                left: 3%;
+                display: none;
             }
 
             .corr-cell {
@@ -1989,9 +1998,17 @@
                 height: 12px;
             }
 
+            .data-trail {
+                bottom: 18%;
+            }
+
             .data-trail .trail-dot {
                 width: 6px;
                 height: 6px;
+            }
+
+            .matrix-symbols {
+                display: none;
             }
         }
 
@@ -2220,13 +2237,13 @@
                 </svg>
             </div>
 
-            <!-- Deep Learning Methods Network -->
+            <!-- Forecasting Methods Network (Balance: DL + Statistical) -->
             <div class="dl-network">
                 <div class="dl-node dl-node-1">LSTM</div>
                 <div class="dl-node dl-node-2">NBEATS</div>
                 <div class="dl-node dl-node-3">GRU</div>
-                <div class="dl-node dl-node-4">CNN</div>
-                <div class="dl-node dl-node-5">Transformer</div>
+                <div class="dl-node dl-node-4">EGARCH</div>
+                <div class="dl-node dl-node-5">Prophet</div>
                 <div class="dl-node dl-node-6">NNAR</div>
                 <div class="dl-connector dl-conn-1"></div>
                 <div class="dl-connector dl-conn-2"></div>
